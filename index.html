@@ -1,0 +1,2840 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>StudyFlow — University Exam Planner</title>
+
+<!-- SEO & Social sharing -->
+<meta name="description" content="Plan smarter, study better. Personalized exam planner with AI quizzes and smart calendar.">
+<meta name="theme-color" content="#0f0e17">
+<meta name="author" content="StudyFlow">
+
+<!-- Open Graph (WhatsApp, Facebook, Telegram preview) -->
+<meta property="og:title" content="StudyFlow — University Exam Planner">
+<meta property="og:description" content="Plan smarter, study better. AI-powered quizzes, smart calendar, personalized study plans.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%230f0e17'/%3E%3Crect width='1200' height='5' fill='%23e8c547'/%3E%3Ccircle cx='180' cy='315' r='100' fill='%231a1830' stroke='%23e8c547' stroke-width='3'/%3E%3Ctext x='180' y='315' font-family='Georgia,serif' font-size='120' font-weight='900' fill='%23e8c547' text-anchor='middle' dominant-baseline='middle'%3ES%3C/text%3E%3Ctext x='320' y='285' font-family='Georgia,serif' font-size='80' font-weight='900' fill='white'%3EStudy%3C/text%3E%3Ctext x='530' y='285' font-family='Georgia,serif' font-size='80' font-weight='900' fill='%23e8c547'%3EFlow%3C/text%3E%3Ctext x='320' y='360' font-family='Arial,sans-serif' font-size='34' fill='%239a9aaa'%3EUniversity Exam Planner%3C/text%3E%3Ctext x='320' y='420' font-family='Arial,sans-serif' font-size='26' fill='%23e8c54799'%3E%F0%9F%93%85 Smart Calendar%C2%A0%C2%A0%C2%A0%F0%9F%A7%A0 AI Quizzes%C2%A0%C2%A0%C2%A0%F0%9F%93%8B Study Plans%3C/text%3E%3C/svg%3E">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%230f0e17'/%3E%3Crect width='1200' height='5' fill='%23e8c547'/%3E%3Ccircle cx='180' cy='315' r='100' fill='%231a1830' stroke='%23e8c547' stroke-width='3'/%3E%3Ctext x='180' y='315' font-family='Georgia,serif' font-size='120' font-weight='900' fill='%23e8c547' text-anchor='middle' dominant-baseline='middle'%3ES%3C/text%3E%3Ctext x='320' y='285' font-family='Georgia,serif' font-size='80' font-weight='900' fill='white'%3EStudy%3C/text%3E%3Ctext x='530' y='285' font-family='Georgia,serif' font-size='80' font-weight='900' fill='%23e8c547'%3EFlow%3C/text%3E%3Ctext x='320' y='360' font-family='Arial,sans-serif' font-size='34' fill='%239a9aaa'%3EUniversity Exam Planner%3C/text%3E%3Ctext x='320' y='420' font-family='Arial,sans-serif' font-size='26' fill='%23e8c54799'%3E%F0%9F%93%85 Smart Calendar%C2%A0%C2%A0%C2%A0%F0%9F%A7%A0 AI Quizzes%C2%A0%C2%A0%C2%A0%F0%9F%93%8B Study Plans%3C/text%3E%3C/svg%3E">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:title" content="StudyFlow — University Exam Planner">
+<meta name="twitter:description" content="AI-powered study planner for university students.">
+
+<!-- PWA / Add to Home Screen -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="StudyFlow">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="StudyFlow">
+
+
+<!-- Inline PWA manifest -->
+<link rel="manifest" href="data:application/manifest+json,{
+  &quot;name&quot;: &quot;StudyFlow — University Exam Planner&quot;,
+  &quot;short_name&quot;: &quot;StudyFlow&quot;,
+  &quot;description&quot;: &quot;AI-powered exam planner for university students&quot;,
+  &quot;start_url&quot;: &quot;.&quot;,
+  &quot;display&quot;: &quot;standalone&quot;,
+  &quot;background_color&quot;: &quot;#0f0e17&quot;,
+  &quot;theme_color&quot;: &quot;#e8c547&quot;,
+  &quot;orientation&quot;: &quot;portrait-primary&quot;,
+  &quot;icons&quot;: [{
+    &quot;src&quot;: &quot;data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0e17'/><text y='.9em' font-size='80' x='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='900' fill='%23e8c547'>S</text></svg>&quot;,
+    &quot;sizes&quot;: &quot;any&quot;,
+    &quot;type&quot;: &quot;image/svg+xml&quot;,
+    &quot;purpose&quot;: &quot;any maskable&quot;
+  }]
+}">
+<!-- Favicon inline (gold S on dark) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0e17'/><text y='.9em' font-size='80' x='50%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='900' fill='%23e8c547'>S</text></svg>">
+
+<!-- Apple touch icon (inline SVG → PNG workaround) -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0e17'/><text y='.9em' font-size='80' x='50%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='900' fill='%23e8c547'>S</text></svg>">
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f0e17">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="StudyFlow">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="description" content="Pianificatore esami universitari con quiz AI, calendario e piani di studio personalizzati">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e17;
+    --surface: #1a1927;
+    --surface2: #252438;
+    --accent: #e8c547;
+    --accent2: #ff6b6b;
+    --accent3: #6bcbff;
+    --text: #fffffe;
+    --text-muted: #a7a9be;
+    --border: rgba(255,255,255,0.08);
+    --success: #6bcf7f;
+    --warning: #ffb347;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+
+  /* LAYOUT */
+  .screen { display: none; min-height: 100vh; animation: fadeIn 0.5s ease; }
+  .screen.active { display: flex; flex-direction: column; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* HEADER */
+  .header { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; background: rgba(15,14,23,0.9); }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; }
+  .logo span { color: var(--accent); }
+  .nav-tabs { display: flex; gap: 8px; }
+  .nav-tab { padding: 8px 20px; border-radius: 50px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; transition: all 0.2s; }
+  .nav-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-tab.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+
+  /* WELCOME SCREEN */
+  #screen-welcome { align-items: center; justify-content: center; text-align: center; padding: 60px 20px; position: relative; }
+  .bg-orbs { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; animation: float 8s ease-in-out infinite; }
+  .orb1 { width: 500px; height: 500px; background: var(--accent); top: -100px; left: -100px; animation-delay: 0s; }
+  .orb2 { width: 400px; height: 400px; background: var(--accent3); bottom: -100px; right: -100px; animation-delay: 3s; }
+  .orb3 { width: 300px; height: 300px; background: var(--accent2); top: 40%; left: 40%; animation-delay: 6s; }
+  @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-30px) scale(1.05); } }
+  .welcome-content { position: relative; z-index: 1; max-width: 700px; }
+  .welcome-badge { display: inline-block; padding: 6px 18px; background: rgba(232,197,71,0.15); border: 1px solid rgba(232,197,71,0.3); border-radius: 50px; font-size: 0.8rem; color: var(--accent); margin-bottom: 24px; letter-spacing: 2px; text-transform: uppercase; }
+  .welcome-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; line-height: 1.05; margin-bottom: 20px; }
+  .welcome-title .highlight { color: var(--accent); display: block; }
+  .welcome-sub { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .btn { padding: 14px 36px; border-radius: 50px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none; }
+  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(232,197,71,0.3); }
+  .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-danger { background: var(--accent2); color: white; }
+  .btn-sm { padding: 8px 20px; font-size: 0.85rem; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; text-align: left; }
+  .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .feature-icon { font-size: 2rem; margin-bottom: 12px; }
+  .feature-title { font-weight: 600; margin-bottom: 6px; }
+  .feature-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ONBOARDING QUIZ */
+  #screen-onboarding { padding: 40px; }
+  .onboarding-wrap { max-width: 700px; margin: 0 auto; }
+  .step-indicator { display: flex; gap: 8px; margin-bottom: 40px; }
+  .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--surface2); transition: all 0.3s; }
+  .step-dot.active { background: var(--accent); width: 32px; border-radius: 4px; }
+  .step-dot.done { background: var(--success); }
+  .question-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; }
+  .question-label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .question-text { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 32px; line-height: 1.4; }
+  .options-grid { display: grid; gap: 12px; }
+  .option-btn { padding: 16px 20px; background: var(--surface2); border: 2px solid transparent; border-radius: 12px; color: var(--text); cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; transition: all 0.2s; display: flex; align-items: center; gap: 12px; }
+  .option-btn:hover { border-color: var(--accent); background: rgba(232,197,71,0.05); }
+  .option-btn.selected { border-color: var(--accent); background: rgba(232,197,71,0.1); }
+  .option-letter { width: 28px; height: 28px; border-radius: 6px; background: var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+  .input-field { width: 100%; padding: 14px 18px; background: var(--surface2); border: 2px solid var(--border); border-radius: 12px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 1rem; transition: border-color 0.2s; }
+  .input-field:focus { outline: none; border-color: var(--accent); }
+  .input-field::placeholder { color: var(--text-muted); }
+  .nav-btns { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; }
+  .progress-text { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* MAIN APP */
+  #screen-app { flex-direction: column; }
+  .app-content { flex: 1; padding: 32px 40px; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+  /* AGGIUNGI ESAME */
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+  .section-sub { color: var(--text-muted); margin-bottom: 32px; }
+  .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; max-width: 800px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1/-1; }
+  .form-label { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .tema-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+  .tema-input { flex: 1; padding: 10px 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
+  .tema-input:focus { outline: none; border-color: var(--accent); }
+  .btn-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; font-size: 1.1rem; transition: all 0.2s; }
+  .btn-add-tema { background: rgba(232,197,71,0.15); color: var(--accent); margin-top: 4px; }
+  .btn-remove { background: rgba(255,107,107,0.15); color: var(--accent2); }
+  .btn-add-tema:hover { background: rgba(232,197,71,0.3); }
+  .btn-remove:hover { background: rgba(255,107,107,0.3); }
+
+  /* CALENDARIO */
+  .calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .cal-nav { display: flex; align-items: center; gap: 16px; }
+  .cal-nav button { background: var(--surface); border: 1px solid var(--border); color: var(--text); width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: all 0.2s; }
+  .cal-nav button:hover { border-color: var(--accent); color: var(--accent); }
+  .cal-month { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-day-header { text-align: center; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); padding: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .cal-day { min-height: 90px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
+  .cal-day:hover { border-color: var(--accent); }
+  .cal-day.other-month { opacity: 0.3; }
+  .cal-day.today { border-color: var(--accent3); }
+  .cal-day.today .day-num { color: var(--accent3); font-weight: 700; }
+  .cal-day.has-exam { background: rgba(232,197,71,0.08); border-color: var(--accent); }
+  .cal-day.has-study { background: rgba(107,203,255,0.05); }
+  .day-num { font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; }
+  .day-event { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .event-exam { background: rgba(232,197,71,0.25); color: var(--accent); }
+  .event-study { background: rgba(107,203,255,0.2); color: var(--accent3); }
+  .event-review { background: rgba(107,207,127,0.2); color: var(--success); }
+
+  /* PIANO DI STUDIO */
+  .piano-header { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .exam-selector { padding: 10px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; cursor: pointer; }
+  .exam-selector:focus { outline: none; border-color: var(--accent); }
+  .study-timeline { display: grid; gap: 12px; }
+  .study-day { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.2s; }
+  .study-day:hover { border-color: var(--accent); transform: translateX(4px); }
+  .study-day.completed { opacity: 0.6; border-color: var(--success); }
+  .study-date { text-align: center; min-width: 60px; }
+  .study-date .day { font-size: 1.8rem; font-weight: 700; font-family: 'Playfair Display', serif; color: var(--accent); }
+  .study-date .month { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
+  .study-content { flex: 1; }
+  .study-tema { font-weight: 600; margin-bottom: 4px; }
+  .study-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+  .study-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .tag { padding: 3px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; }
+  .tag-study { background: rgba(107,203,255,0.15); color: var(--accent3); }
+  .tag-review { background: rgba(107,207,127,0.15); color: var(--success); }
+  .tag-quiz { background: rgba(232,197,71,0.15); color: var(--accent); }
+  .tag-exam { background: rgba(255,107,107,0.2); color: var(--accent2); }
+  .study-actions { display: flex; gap: 8px; align-items: center; }
+  .check-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .check-btn:hover { border-color: var(--success); color: var(--success); }
+  .check-btn.done { background: var(--success); border-color: var(--success); color: white; }
+
+  /* QUIZ */
+  .quiz-selector { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .quiz-card { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.2s; }
+  .quiz-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .quiz-card-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .quiz-card-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .quiz-card-sub { font-size: 0.8rem; color: var(--text-muted); }
+  .quiz-card-badge { margin-top: 12px; font-size: 0.75rem; padding: 3px 10px; border-radius: 50px; display: inline-block; }
+  .quiz-card.has-ai { border-color: rgba(107,203,255,0.4); }
+  .quiz-card.generating { opacity: 0.7; pointer-events: none; }
+
+  /* PDF UPLOAD */
+  .pdf-drop-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 32px; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--surface2); position: relative; }
+  .pdf-drop-zone:hover, .pdf-drop-zone.drag-over { border-color: var(--accent); background: rgba(232,197,71,0.05); }
+  .pdf-drop-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .pdf-drop-icon { font-size: 2.5rem; margin-bottom: 8px; }
+  .pdf-drop-text { font-weight: 600; margin-bottom: 4px; }
+  .pdf-drop-sub { font-size: 0.8rem; color: var(--text-muted); }
+  .pdf-file-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--surface2); border-radius: 10px; margin-top: 8px; border: 1px solid var(--border); }
+  .pdf-file-icon { font-size: 1.5rem; }
+  .pdf-file-info { flex: 1; }
+  .pdf-file-name { font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px; }
+  .pdf-file-size { font-size: 0.75rem; color: var(--text-muted); }
+  .pdf-file-remove { background: none; border: none; color: var(--accent2); cursor: pointer; font-size: 1.1rem; padding: 4px; }
+  .pdf-status { margin-top: 10px; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; }
+  .pdf-status.ok { color: var(--success); }
+  .pdf-status.loading { color: var(--accent3); }
+  .pdf-status.error { color: var(--accent2); }
+
+  /* DIFFICULTY PICKER */
+  .diff-picker { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 20px 0; }
+  .diff-btn { padding: 14px 10px; border-radius: 12px; border: 2px solid var(--border); background: var(--surface2); cursor: pointer; text-align: center; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .diff-btn:hover { transform: translateY(-3px); }
+  .diff-btn.selected { transform: translateY(-3px); }
+  .diff-btn .diff-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .diff-btn .diff-name { font-weight: 700; font-size: 0.85rem; margin-bottom: 3px; }
+  .diff-btn .diff-desc { font-size: 0.7rem; color: var(--text-muted); line-height: 1.3; }
+  .diff-btn[data-d="facile"]  { --dc: #6bcf7f; } .diff-btn[data-d="facile"].selected  { border-color: #6bcf7f; background: rgba(107,207,127,0.1); box-shadow: 0 8px 24px rgba(107,207,127,0.2); }
+  .diff-btn[data-d="media"]   { --dc: #e8c547; } .diff-btn[data-d="media"].selected   { border-color: #e8c547; background: rgba(232,197,71,0.1);  box-shadow: 0 8px 24px rgba(232,197,71,0.2);  }
+  .diff-btn[data-d="difficile"]{ --dc: #ffb347; } .diff-btn[data-d="difficile"].selected{ border-color: #ffb347; background: rgba(255,179,71,0.1);  box-shadow: 0 8px 24px rgba(255,179,71,0.2);  }
+  .diff-btn[data-d="pro"]     { --dc: #ff6b6b; } .diff-btn[data-d="pro"].selected     { border-color: #ff6b6b; background: rgba(255,107,107,0.1); box-shadow: 0 8px 24px rgba(255,107,107,0.2); }
+  .diff-btn .diff-name { color: var(--dc, var(--text)); }
+  .ai-gen-card { background: linear-gradient(135deg, rgba(107,203,255,0.08), rgba(232,197,71,0.05)); border: 1px solid rgba(107,203,255,0.25); border-radius: var(--radius); padding: 20px; margin-top: 16px; }
+  .ai-gen-title { font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .ai-gen-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; }
+  .ai-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(107,203,255,0.3); border-top-color: var(--accent3); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes slideUp { from { opacity:0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+  .ai-progress-wrap { margin: 12px 0; }
+  .ai-progress-bar { height: 3px; background: var(--surface2); border-radius: 2px; overflow: hidden; }
+  .ai-progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent3), var(--accent)); border-radius: 2px; transition: width 0.5s ease; }
+  .ai-progress-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+  /* QUIZ ACTIVE */
+  .quiz-active { max-width: 700px; margin: 0 auto; }
+  .quiz-progress-bar { height: 4px; background: var(--surface2); border-radius: 2px; margin-bottom: 32px; overflow: hidden; }
+  .quiz-progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent3)); border-radius: 2px; transition: width 0.5s ease; }
+  .quiz-score-live { display: flex; gap: 24px; margin-bottom: 24px; }
+  .score-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 20px; text-align: center; }
+  .score-num { font-size: 1.5rem; font-weight: 700; font-family: 'DM Mono', monospace; }
+  .score-num.pos { color: var(--success); }
+  .score-num.neg { color: var(--accent2); }
+  .score-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
+  .q-num { font-size: 0.8rem; color: var(--accent); font-family: 'DM Mono', monospace; margin-bottom: 8px; }
+  .q-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 28px; line-height: 1.4; }
+  .answer-options { display: grid; gap: 10px; margin-bottom: 24px; }
+  .answer-btn { padding: 16px 20px; background: var(--surface2); border: 2px solid transparent; border-radius: 12px; color: var(--text); cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; transition: all 0.25s; display: flex; gap: 12px; align-items: center; }
+  .answer-btn:hover:not(:disabled) { border-color: var(--accent); background: rgba(232,197,71,0.05); }
+  .answer-btn:disabled { cursor: default; }
+  .answer-btn.correct { border-color: var(--success) !important; background: rgba(107,207,127,0.1) !important; }
+  .answer-btn.wrong { border-color: var(--accent2) !important; background: rgba(255,107,107,0.1) !important; }
+  .answer-btn.reveal-correct { border-color: var(--success); background: rgba(107,207,127,0.07); }
+  .skip-btn { padding: 10px 24px; background: transparent; border: 1px solid var(--border); border-radius: 8px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; transition: all 0.2s; margin-right: 12px; }
+  .skip-btn:hover { border-color: var(--warning); color: var(--warning); }
+
+  /* RISULTATI */
+  .results-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; max-width: 600px; margin: 0 auto; text-align: center; }
+  .results-score-big { font-family: 'Playfair Display', serif; font-size: 6rem; font-weight: 900; line-height: 1; margin: 20px 0; }
+  .results-grade { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 32px; }
+  .results-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+  .rb-item { background: var(--surface2); border-radius: 10px; padding: 16px; }
+  .rb-num { font-size: 1.6rem; font-weight: 700; font-family: 'DM Mono', monospace; }
+  .rb-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+  .results-feedback { background: var(--surface2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 16px 20px; text-align: left; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 24px; }
+
+  /* ESAMI LIST */
+  .esami-list { display: grid; gap: 16px; max-width: 900px; }
+  .esame-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; gap: 20px; align-items: flex-start; }
+  .esame-color { width: 4px; border-radius: 2px; align-self: stretch; flex-shrink: 0; }
+  .esame-info { flex: 1; }
+  .esame-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+  .esame-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+  .esame-temi { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tema-chip { padding: 3px 10px; background: var(--surface2); border-radius: 50px; font-size: 0.75rem; color: var(--text-muted); }
+  .esame-actions { display: flex; gap: 8px; align-items: flex-start; }
+  .days-left { text-align: center; min-width: 70px; }
+  .days-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--accent); }
+  .days-num.urgent { color: var(--accent2); }
+  .days-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
+
+  /* MODAL */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto; animation: fadeIn 0.3s ease; }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+  .modal-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; }
+  .modal-close { position: absolute; right: 36px; top: 32px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
+
+  /* EMPTY STATE */
+  .empty-state { text-align: center; padding: 80px 20px; }
+  .empty-icon { font-size: 4rem; margin-bottom: 16px; }
+  .empty-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+  .empty-sub { color: var(--text-muted); margin-bottom: 24px; }
+
+  /* PROFILO */
+  .profile-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; max-width: 900px; }
+  .profile-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+  .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent3)); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 16px; }
+  .profile-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+  .profile-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-key { font-size: 0.85rem; color: var(--text-muted); }
+  .stat-val { font-weight: 600; font-family: 'DM Mono', monospace; }
+  .weakness-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .weakness-item:last-child { border-bottom: none; }
+  .weakness-bar-wrap { flex: 1; height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+  .weakness-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+  .weakness-label { font-size: 0.85rem; min-width: 120px; }
+  .weakness-pct { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--text-muted); min-width: 36px; text-align: right; }
+
+  /* LANGUAGE PICKER */
+  .lang-picker { display: flex; gap: 8px; align-items: center; }
+  .lang-btn { width: 38px; height: 28px; border-radius: 6px; border: 2px solid var(--border); background: var(--surface2); cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; padding: 0; line-height: 1; }
+  .lang-btn:hover { border-color: var(--accent); transform: scale(1.1); }
+  .lang-btn.active { border-color: var(--accent); background: rgba(232,197,71,0.15); box-shadow: 0 0 10px rgba(232,197,71,0.2); }
+  .lang-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
+
+  @media (max-width: 768px) {
+    .header { padding: 16px 20px; } .app-content { padding: 20px; } .features-grid { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } .profile-grid { grid-template-columns: 1fr; } .results-breakdown { grid-template-columns: 1fr; } .quiz-score-live { flex-wrap: wrap; } 
+  }
+
+  /* ── BOTTOM NAV ──────────────────────────────────────────────────── */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: stretch;
+    background: rgba(15,14,23,0.97);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.4);
+  }
+  .bnav-btn {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 3px; padding: 10px 4px 8px;
+    background: none; border: none; color: var(--text-muted);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s; position: relative; min-height: 58px;
+  }
+  .bnav-btn::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 2px; background: var(--accent);
+    border-radius: 2px 2px 0 0; transition: width 0.3s ease;
+  }
+  .bnav-btn.active::after { width: 60%; }
+  .bnav-btn.active { color: var(--accent); }
+  .bnav-btn:active { transform: scale(0.93); }
+  .bnav-icon { font-size: 1.35rem; line-height: 1; }
+  .bnav-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  /* Add bottom padding to app-content so content isn't hidden behind nav */
+  #screen-app .app-content { padding-bottom: 80px; }
+
+  /* ── INFO BUTTON & TOOLTIP ──────────────────────────────────────── */
+  .info-btn {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(107,203,255,0.15); border: 1px solid rgba(107,203,255,0.35);
+    color: var(--accent3); font-size: 0.75rem; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0; font-family: 'DM Mono', monospace;
+  }
+  .info-btn:hover { background: rgba(107,203,255,0.3); transform: scale(1.15); }
+  .info-tooltip {
+    display: none; background: rgba(107,203,255,0.07);
+    border: 1px solid rgba(107,203,255,0.25); border-radius: 12px;
+    padding: 14px 16px; font-size: 0.83rem; color: var(--text-muted);
+    line-height: 1.6; margin-bottom: 16px; animation: fadeIn 0.2s ease;
+  }
+  .info-tooltip.visible { display: block; }
+
+  /* ── HEADER SLIM ────────────────────────────────────────────────── */
+  .header { padding: 14px 20px; }
+  .logo { font-size: 1.3rem; }
+
+  /* ── CARD IMPROVEMENTS ──────────────────────────────────────────── */
+  .esame-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 22px;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .esame-card:hover { border-color: rgba(232,197,71,0.3); transform: translateY(-1px); }
+
+  /* ── SECTION TITLE SIZE MOBILE ───────────────────────────────────── */
+  @media (max-width: 768px) {
+    .section-title { font-size: 1.5rem; }
+    .app-content { padding: 20px 16px 90px; }
+    .header { padding: 12px 16px; }
+    .bottom-nav { display: flex; }
+  }
+  @media (min-width: 769px) {
+    .bottom-nav { display: none; }
+    /* On desktop, show a slim top nav instead */
+    .header { padding: 14px 40px; }
+    .desktop-nav { display: flex !important; }
+    #screen-app .app-content { padding-bottom: 32px; }
+  }
+
+  /* ── DESKTOP TOP NAV (hidden on mobile) ─────────────────────────── */
+  .desktop-nav {
+    display: none;
+    gap: 4px;
+  }
+  .desktop-nav .nav-tab {
+    padding: 7px 18px; border-radius: 50px;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--text-muted); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; transition: all 0.2s;
+  }
+  .desktop-nav .nav-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .desktop-nav .nav-tab.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+
+
+  /* ── AUTH SCREEN ─────────────────────────────────────────────────── */
+  #screen-auth {
+    align-items: center; justify-content: center;
+    padding: 40px 20px; min-height: 100vh;
+  }
+  .auth-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 24px; padding: 40px 36px;
+    width: 100%; max-width: 420px;
+    animation: fadeIn 0.4s ease;
+  }
+  .auth-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 900;
+    text-align: center; margin-bottom: 8px;
+  }
+  .auth-logo span { color: var(--accent); }
+  .auth-tagline {
+    text-align: center; color: var(--text-muted);
+    font-size: 0.9rem; margin-bottom: 32px;
+  }
+  .auth-tabs {
+    display: flex; gap: 0;
+    background: var(--surface2); border-radius: 12px;
+    padding: 4px; margin-bottom: 28px;
+    position: relative; z-index: 1;
+  }
+  .auth-tab {
+    flex: 1; padding: 9px; border-radius: 9px;
+    border: none; background: transparent;
+    color: var(--text-muted); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    font-weight: 600; transition: all 0.2s;
+    position: relative; z-index: 1;
+  }
+  .auth-tab.active {
+    background: var(--accent); color: var(--bg);
+  }
+  .auth-form { display: flex; flex-direction: column; gap: 16px; }
+  .auth-field { display: flex; flex-direction: column; gap: 6px; }
+  .auth-label {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;
+  }
+  .auth-input {
+    padding: 13px 16px; background: var(--surface2);
+    border: 2px solid var(--border); border-radius: 12px;
+    color: var(--text); font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; transition: border-color 0.2s;
+  }
+  .auth-input:focus { outline: none; border-color: var(--accent); }
+  .auth-btn {
+    padding: 14px; background: var(--accent); color: var(--bg);
+    border: none; border-radius: 12px; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    transition: all 0.2s; margin-top: 4px;
+  }
+  .auth-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(232,197,71,0.3); }
+  .auth-btn:disabled { opacity: 0.6; transform: none; cursor: not-allowed; }
+  .auth-divider {
+    text-align: center; color: var(--text-muted);
+    font-size: 0.8rem; margin: 4px 0;
+    position: relative;
+  }
+  .auth-divider::before, .auth-divider::after {
+    content: ''; position: absolute; top: 50%;
+    width: 40%; height: 1px; background: var(--border);
+  }
+  .auth-divider::before { left: 0; }
+  .auth-divider::after { right: 0; }
+  .auth-google {
+    padding: 13px; background: var(--surface2);
+    border: 1px solid var(--border); border-radius: 12px;
+    color: var(--text); font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    transition: all 0.2s; display: flex; align-items: center;
+    justify-content: center; gap: 10px;
+  }
+  .auth-google:hover { border-color: var(--accent); }
+  .auth-error {
+    background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3);
+    border-radius: 10px; padding: 12px 14px;
+    color: var(--accent2); font-size: 0.85rem;
+    display: none;
+  }
+  .auth-error.show { display: block; }
+  .auth-success {
+    background: rgba(107,207,127,0.1); border: 1px solid rgba(107,207,127,0.3);
+    border-radius: 10px; padding: 12px 14px;
+    color: var(--success); font-size: 0.85rem;
+    display: none; text-align: center;
+  }
+  .auth-success.show { display: block; }
+  .auth-footer {
+    text-align: center; margin-top: 20px;
+    font-size: 0.8rem; color: var(--text-muted);
+  }
+  /* User avatar in header/sidebar */
+  .user-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent3));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 700; color: var(--bg);
+    cursor: pointer; flex-shrink: 0;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .user-avatar:hover { border-color: var(--accent); }
+  .user-menu {
+    position: absolute; top: 56px; right: 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 8px;
+    min-width: 200px; z-index: 500;
+    animation: fadeIn 0.2s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    display: none;
+  }
+  .user-menu.open { display: block; }
+  .user-menu-name {
+    padding: 10px 12px 6px;
+    font-weight: 700; font-size: 0.95rem;
+  }
+  .user-menu-email {
+    padding: 0 12px 10px;
+    font-size: 0.78rem; color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .user-menu-item {
+    padding: 10px 12px; border-radius: 8px;
+    cursor: pointer; font-size: 0.88rem;
+    transition: background 0.15s; display: flex;
+    align-items: center; gap: 10px;
+  }
+  .user-menu-item:hover { background: var(--surface2); }
+  .user-menu-item.danger { color: var(--accent2); }
+  /* Sync indicator */
+  .sync-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--success); display: inline-block;
+    margin-left: 6px; flex-shrink: 0;
+  }
+  .sync-dot.syncing { background: var(--accent); animation: pulse 1s infinite; }
+  .sync-dot.error { background: var(--accent2); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  /* Setup prompt shown after login if no data */
+  .setup-prompt {
+    background: rgba(232,197,71,0.08); border: 1px solid rgba(232,197,71,0.2);
+    border-radius: 16px; padding: 20px 24px; margin-bottom: 24px;
+    display: none;
+  }
+  .setup-prompt.show { display: flex; align-items: center; gap: 16px; }
+
+</style>
+
+<!-- Supabase -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.39.3/dist/umd/supabase.js"></script>
+</head>
+<body>
+
+<div class="bg-orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+
+<!-- ═══════════════ AUTH SCREEN ═══════════════ -->
+<div id="screen-auth" class="screen active">
+  <div class="auth-card">
+    <div class="auth-logo">Study<span>Flow</span></div>
+    <div class="auth-tagline">Your personal exam planner · Sync across all devices</div>
+
+    <div id="auth-error" style="display:none;"></div>
+    <div id="auth-success" style="display:none;"></div>
+
+    <!-- LOGIN FORM -->
+    <div id="auth-form-login" class="auth-form">
+      <div class="auth-field">
+        <label class="auth-label">Email</label>
+        <input class="auth-input" id="login-email" type="email" placeholder="your@email.com" autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Password</label>
+        <input class="auth-input" id="login-password" type="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="auth-btn" id="login-btn" onclick="doLogin()">Sign in →</button>
+      <div style="text-align:center;padding:12px 0;color:var(--text-muted);font-size:0.9rem;">
+        Don't have an account?
+        <span style="color:var(--accent);font-weight:700;cursor:pointer;text-decoration:underline;" onclick="document.getElementById('auth-form-login').style.display='none';document.getElementById('auth-form-signup').style.display='flex';">Register</span>
+      </div>
+      <div style="text-align:center;">
+        <span style="color:var(--accent);font-size:0.85rem;cursor:pointer;" onclick="showForgotPassword()">Forgot password?</span>
+      </div>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="auth-form-signup" class="auth-form" style="display:none;">
+      <div class="auth-field">
+        <label class="auth-label">Full name</label>
+        <input class="auth-input" id="signup-name" type="text" placeholder="Mario Rossi" autocomplete="name">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Email</label>
+        <input class="auth-input" id="signup-email" type="email" placeholder="your@email.com" autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Password</label>
+        <input class="auth-input" id="signup-password" type="password" placeholder="Min. 6 characters" autocomplete="new-password">
+      </div>
+      <button class="auth-btn" id="signup-btn" onclick="doSignup()">Create account →</button>
+      <div style="text-align:center;padding:12px 0;color:var(--text-muted);font-size:0.9rem;">
+        Already have an account?
+        <span style="color:var(--accent);font-weight:700;cursor:pointer;text-decoration:underline;" onclick="document.getElementById('auth-form-signup').style.display='none';document.getElementById('auth-form-login').style.display='flex';">Sign in</span>
+      </div>
+    </div>
+  </div>
+
+<!-- WELCOME
+
+<!-- WELCOME SCREEN -->
+<div id="screen-welcome" class="screen">
+  <div style="padding:20px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border);">
+    <div class="logo">Study<span>Flow</span></div>
+    <div class="lang-picker">
+      <span class="lang-label">Lang</span>
+      <button class="lang-btn" onclick="setLang('it')" title="Italiano" id="lang-it">🇮🇹</button>
+      <button class="lang-btn" onclick="setLang('es')" title="Español" id="lang-es">🇪🇸</button>
+      <button class="lang-btn" onclick="setLang('fr')" title="Français" id="lang-fr">🇫🇷</button>
+      <button class="lang-btn active" onclick="setLang('en')" title="English" id="lang-en">🇬🇧</button>
+    </div>
+  </div>
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:60px 20px;">
+    <div class="welcome-content">
+      <div class="welcome-badge" id="w-badge">🎓 University Planner</div>
+      <h1 class="welcome-title" id="w-title">Study smarter,<span class="highlight" id="w-title2">not harder.</span></h1>
+      <p class="welcome-sub" id="w-sub">A personalized study plan for every exam, with adaptive quizzes and an intelligent calendar.</p>
+      <button class="btn btn-primary" onclick="startOnboarding()" id="w-cta" style="font-size:1.1rem; padding:16px 48px;">Get started →</button>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon">🗓️</div><div class="feature-title" id="f1-title">Visual Calendar</div><div class="feature-desc" id="f1-desc">Visualize your study plan on an interactive calendar month by month.</div></div>
+        <div class="feature-card"><div class="feature-icon">🧠</div><div class="feature-title" id="f2-title">Adaptive Quizzes</div><div class="feature-desc" id="f2-desc">15-question quizzes per topic and a final 50-question simulation with university-style scoring.</div></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title" id="f3-title">Weakness Analysis</div><div class="feature-desc" id="f3-desc">Identify where you need more practice and optimize your study time.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ONBOARDING QUIZ SCREEN -->
+<div id="screen-onboarding" class="screen">
+  <div style="padding:20px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border);">
+    <div class="logo">Study<span>Flow</span></div>
+    <span style="font-size:0.85rem; color:var(--text-muted);">Questionario iniziale</span>
+  </div>
+  <div style="flex:1; padding:40px; display:flex; align-items:flex-start; justify-content:center;">
+    <div class="onboarding-wrap">
+      <div class="step-indicator" id="step-indicator"></div>
+      <div class="question-card" id="onboarding-card"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP SCREEN -->
+<div id="screen-app" class="screen">
+  <div class="header">
+    <div class="logo">Study<span>Flow</span></div>
+    <!-- Desktop nav (hidden on mobile) -->
+    <div class="desktop-nav" id="desktop-nav">
+      <button class="nav-tab active" onclick="switchTabNav('dashboard',this)" id="dnav-dashboard">🗓️ Calendar</button>
+      <button class="nav-tab" onclick="switchTabNav('esami',this)" id="dnav-esami">📚 Exams</button>
+      <button class="nav-tab" onclick="switchTabNav('piano',this)" id="dnav-piano">📋 Plan</button>
+      <button class="nav-tab" onclick="switchTabNav('quiz',this)" id="dnav-quiz">🧠 Quiz</button>
+      <button class="nav-tab" onclick="switchTabNav('profilo',this)" id="dnav-profilo">👤 Profile</button>
+    </div>
+    <div class="lang-picker">
+      <button class="lang-btn" onclick="setLang('it')" title="Italiano" id="lang-it2">🇮🇹</button>
+      <button class="lang-btn" onclick="setLang('es')" title="Español" id="lang-es2">🇪🇸</button>
+      <button class="lang-btn" onclick="setLang('fr')" title="Français" id="lang-fr2">🇫🇷</button>
+      <button class="lang-btn active" onclick="setLang('en')" title="English" id="lang-en2">🇬🇧</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;position:relative;">
+      <div class="sync-dot" id="header-sync-dot" title="Synced"></div>
+      <div class="user-avatar" id="header-avatar" onclick="toggleUserMenu()">?</div>
+      <div class="user-menu" id="user-menu">
+        <div class="user-menu-name" id="menu-name">—</div>
+        <div class="user-menu-email" id="menu-email">—</div>
+        <div class="user-menu-item" onclick="exportUserData()">💾 Export data</div>
+        <div class="user-menu-item danger" onclick="doLogout()">🚪 Sign out</div>
+      </div>
+    </div>
+  </div>
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <button class="bnav-btn active" onclick="switchTabNav('dashboard',this)" id="nav-dashboard">
+      <span class="bnav-icon">🗓️</span>
+      <span class="bnav-label" id="bnav-lbl-dashboard">Calendar</span>
+    </button>
+    <button class="bnav-btn" onclick="switchTabNav('esami',this)" id="nav-esami">
+      <span class="bnav-icon">📚</span>
+      <span class="bnav-label" id="bnav-lbl-esami">Exams</span>
+    </button>
+    <button class="bnav-btn" onclick="switchTabNav('piano',this)" id="nav-piano">
+      <span class="bnav-icon">📋</span>
+      <span class="bnav-label" id="bnav-lbl-piano">Plan</span>
+    </button>
+    <button class="bnav-btn" onclick="switchTabNav('quiz',this)" id="nav-quiz">
+      <span class="bnav-icon">🧠</span>
+      <span class="bnav-label" id="bnav-lbl-quiz">Quiz</span>
+    </button>
+    <button class="bnav-btn" onclick="switchTabNav('profilo',this)" id="nav-profilo">
+      <span class="bnav-icon">👤</span>
+      <span class="bnav-label" id="bnav-lbl-profilo">Profile</span>
+    </button>
+  </nav>
+  <div class="app-content">
+
+    <!-- DASHBOARD / CALENDARIO -->
+    <div id="tab-dashboard" class="tab-content active">
+      <div class="calendar-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+        <div class="section-title" id="cal-section-title">Study Calendar</div>
+        <button class="info-btn" onclick="showInfo('cal')">?</button>
+      </div>
+      <div class="info-tooltip" id="info-cal">📅 Visualizza tutti i tuoi esami e sessioni di studio sul calendario. Tocca un giorno per vedere i dettagli. I giorni colorati indicano: <span style="color:var(--accent)">■</span> esame, <span style="color:var(--accent3)">■</span> studio, <span style="color:var(--success)">■</span> ripasso.</div>
+      <div class="section-sub" id="cal-subtitle"></div>
+        <div class="cal-nav">
+          <button onclick="calNav(-1)">‹</button>
+          <span class="cal-month" id="cal-month-label"></span>
+          <button onclick="calNav(1)">›</button>
+        </div>
+      </div>
+      <div class="calendar-grid">
+        <div class="cal-day-header" id="wh0">Lun</div><div class="cal-day-header" id="wh1">Mar</div><div class="cal-day-header" id="wh2">Mer</div><div class="cal-day-header" id="wh3">Gio</div><div class="cal-day-header" id="wh4">Ven</div><div class="cal-day-header" id="wh5">Sab</div><div class="cal-day-header" id="wh6">Dom</div>
+      </div>
+      <div class="calendar-grid" id="cal-grid" style="margin-top:4px;"></div>
+      <div style="display:flex; gap:16px; margin-top:16px; flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:3px;background:rgba(232,197,71,0.3);display:inline-block;"></span id="leg-exam"> Giorno Esame</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:3px;background:rgba(107,203,255,0.2);display:inline-block;"></span id="leg-study"> Sessione Studio</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);"><span style="width:12px;height:12px;border-radius:3px;background:rgba(107,207,127,0.2);display:inline-block;"></span id="leg-review"> Ripasso</div>
+      </div>
+    </div>
+
+    <!-- ESAMI -->
+    <div id="tab-esami" class="tab-content">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="section-title" id="esami-title">My Exams</div>
+            <button class="info-btn" onclick="showInfo('esami')">?</button>
+          </div>
+          <div class="info-tooltip" id="info-esami">📚 Aggiungi i tuoi esami con data, professore e argomenti. Puoi anche caricare PDF dei tuoi appunti: l'AI li userà per creare domande personalizzate. Ogni esame genera automaticamente un piano di studio.</div>
+          <div class="section-sub" id="esami-sub">Add and manage your university exams</div>
+        </div>
+        <button class="btn btn-primary btn-sm" id="new-exam-btn" onclick="openAddExam()">+ New Exam</button>
+      </div>
+      <div class="esami-list" id="esami-list"></div>
+    </div>
+
+    <!-- PIANO DI STUDIO -->
+    <div id="tab-piano" class="tab-content">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <div class="section-title" id="piano-title">Study Plan</div>
+        <button class="info-btn" onclick="showInfo('piano')">?</button>
+      </div>
+      <div class="info-tooltip" id="info-piano">📋 Il piano viene generato automaticamente in base ai tuoi argomenti e ai giorni rimasti all'esame. Ogni giorno puoi spuntare ✓ le sessioni completate. Usa il pulsante "Quiz AI" su ogni argomento per testare la preparazione.</div>
+      <div class="section-sub" id="piano-sub">Your personalized path to the exam</div>
+      <div class="piano-header">
+        <select class="exam-selector" id="piano-selector" onchange="renderPiano()">
+          <option value="" id="piano-selector-placeholder">Select an exam...</option>
+        </select>
+        <span id="piano-countdown" style="font-size:0.9rem; color:var(--text-muted);"></span>
+      </div>
+      <div class="study-timeline" id="study-timeline"></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="tab-quiz" class="tab-content">
+      <div id="quiz-home">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <div class="section-title" id="quiz-section-title">Quizzes & Tests</div>
+          <button class="info-btn" onclick="showInfo('quiz')">?</button>
+        </div>
+        <div class="info-tooltip" id="info-quiz">🧠 Scegli un esame e un argomento, poi seleziona il livello di difficoltà. L'AI genera domande a risposta multipla in pochi secondi. Risposta corretta +1 pt · Errata −0.33 · Saltata 0. La simulazione finale da 50 domande replica l'esame reale.</div>
+        <div class="section-sub" id="quiz-section-sub">Test your preparation</div>
+        <div class="quiz-selector" id="quiz-selector"></div>
+      </div>
+      <div id="quiz-active-area" style="display:none;">
+        <div class="quiz-active">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <button onclick="backToQuizHome()" id="quiz-back-btn" style="background:none;border:1px solid var(--border);color:var(--text-muted);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;">← Torna</button>
+            <span id="quiz-title-label" style="font-weight:600;"></span>
+            <span id="quiz-counter" style="font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--text-muted);"></span>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+          <div class="quiz-score-live">
+            <div class="score-item"><div class="score-num pos" id="live-correct">0</div><div class="score-label" id="lbl-correct">Corrette</div></div>
+            <div class="score-item"><div class="score-num neg" id="live-wrong">0</div><div class="score-label" id="lbl-wrong">Errate</div></div>
+            <div class="score-item"><div class="score-num" id="live-skip">0</div><div class="score-label" id="lbl-skip">Saltate</div></div>
+            <div class="score-item"><div class="score-num" id="live-score" style="color:var(--accent)">0.00</div><div class="score-label" id="lbl-score">Punteggio</div></div>
+          </div>
+          <div id="quiz-question-area"></div>
+        </div>
+      </div>
+      <div id="quiz-results-area" style="display:none;"></div>
+    </div>
+
+    <!-- PROFILO -->
+    <div id="tab-profilo" class="tab-content">
+      <div class="section-title">Il mio Profilo</div>
+      <div class="section-sub">Il tuo percorso di studio personalizzato</div>
+      <div class="profile-grid" id="profile-content"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL AGGIUNGI ESAME -->
+<div class="modal-overlay" id="modal-exam">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal('modal-exam')">×</button>
+    <div class="modal-title" id="modal-exam-title">Add Exam</div>
+    <div class="modal-sub" id="modal-exam-sub">Enter your exam details</div>
+    <div class="form-card" style="background:transparent;border:none;padding:0;">
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label" id="lbl-subject">Subject</label><input class="input-field" id="exam-name" placeholder="es. Analisi Matematica I"></div>
+        <div class="form-group"><label class="form-label" id="lbl-date">Exam Date</label><input class="input-field" id="exam-date" type="date"></div>
+        <div class="form-group full"><label class="form-label" id="lbl-prof">Professor (optional)</label><input class="input-field" id="exam-prof" id="exam-prof-input" placeholder="es. Prof. Rossi"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" id="lbl-topics">Topics / Content</label>
+        <div id="temi-container"></div>
+        <button class="btn-icon btn-add-tema" onclick="addTema()" style="display:flex;align-items:center;gap:6px;padding:8px 14px;width:auto;border-radius:8px;font-size:0.85rem;" id="add-tema-btn">+ Add topic</button>
+      </div>
+      <!-- PDF UPLOAD -->
+      <div class="form-group" style="margin-top:16px;">
+        <label class="form-label" id="lbl-pdf-material">📄 Study material (optional)</label>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;" id="pdf-desc-text">Upload PDF notes, handouts or book chapters. AI will use this content to generate accurate questions based on your real study materials.</div>
+        <div class="pdf-drop-zone" id="pdf-drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+          <input type="file" accept=".pdf,application/pdf" multiple onchange="handlePdfFiles(event)">
+          <div class="pdf-drop-icon">📚</div>
+          <div class="pdf-drop-text" id="pdf-drop-text">Drag PDFs here or click to select them</div>
+          <div class="pdf-drop-sub" id="pdf-drop-sub">You can upload multiple PDF files (notes, textbook, slides...)</div>
+        </div>
+        <div id="pdf-files-list"></div>
+      </div>
+      <div style="margin-top:24px; display:flex; gap:12px;">
+        <button class="btn btn-primary" onclick="saveExam()" id="save-exam-btn">Save Exam</button>
+        <button class="btn btn-secondary" onclick="closeModal('modal-exam')" id="cancel-exam-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL GIORNO CALENDARIO -->
+<div class="modal-overlay" id="modal-day">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal('modal-day')">×</button>
+    <div class="modal-title" id="modal-day-title">Day Details</div>
+    <div id="modal-day-content"></div>
+  </div>
+</div>
+
+<!-- MODAL DIFFICULTY PICKER -->
+<div class="modal-overlay" id="modal-difficulty">
+  <div class="modal" style="position:relative;max-width:560px;">
+    <button class="modal-close" onclick="closeModal('modal-difficulty')">×</button>
+    <div class="modal-title" id="diff-modal-title">Choose difficulty</div>
+    <div class="modal-sub" id="diff-modal-sub">Questions will be calibrated to the selected level</div>
+    <div class="diff-picker">
+      <div class="diff-btn" data-d="facile" onclick="selectDifficulty('facile',this)">
+        <div class="diff-icon">🌱</div>
+        <div class="diff-name">Easy</div>
+        <div class="diff-desc">Definitions, basic concepts, recognition</div>
+      </div>
+      <div class="diff-btn selected" data-d="media" onclick="selectDifficulty('media',this)">
+        <div class="diff-icon">📖</div>
+        <div class="diff-name">Media</div>
+        <div class="diff-desc">Comprensione, applicazione semplice</div>
+      </div>
+      <div class="diff-btn" data-d="difficile" onclick="selectDifficulty('difficile',this)">
+        <div class="diff-icon">🔥</div>
+        <div class="diff-name">Difficile</div>
+        <div class="diff-desc">Analisi, ragionamento, casi complessi</div>
+      </div>
+      <div class="diff-btn" data-d="pro" onclick="selectDifficulty('pro',this)">
+        <div class="diff-icon">⚡</div>
+        <div class="diff-name">Pro</div>
+        <div class="diff-desc">Livello esame: dettagli, eccezioni, sintesi</div>
+      </div>
+    </div>
+    <div id="diff-level-info" style="padding:14px 16px;background:var(--surface2);border-radius:10px;font-size:0.85rem;color:var(--text-muted);margin-bottom:20px;line-height:1.6;"></div>
+    <button class="btn btn-primary" style="width:100%;" id="diff-start-btn" onclick="launchQuizWithDifficulty()">🤖 Generate Quiz →</button>
+  </div>
+</div>
+
+<script>
+
+// ─── I18N — SISTEMA MULTILINGUA ──────────────────────────────────────────────
+let currentLang = 'en';
+const T = {
+  it: {
+    badge:'🎓 Pianificatore Universitario', title:'Studia meglio,', title2:'non di più.',
+    sub:"Un piano di studio personalizzato per ogni esame, con quiz adattivi e calendario intelligente. Dimentica l'ansia da esame.",
+    cta:'Inizia ora →', f1t:'Calendario Visivo', f1d:'Visualizza il tuo piano di studi su un calendario interattivo.',
+    f2t:'Quiz Adattivi', f2d:'Quiz da 15 domande per tema e simulazione da 50 domande finale.',
+    f3t:'Analisi Debolezze', f3d:'Identifica dove hai bisogno di più pratica.',
+    onbLabel:'Questionario iniziale',
+    navCal:'🗓️ Calendario', navEsami:'📚 Esami', navPiano:'📋 Piano', navQuiz:'🧠 Quiz', navProfilo:'👤 Profilo',
+    navCalShort:'Calendario', navEsamiShort:'Esami', navPianoShort:'Piano', navProfiloShort:'Profilo',
+    infoCalendar:"📅 Visualizza tutti i tuoi esami sul calendario. Tocca un giorno per vedere i dettagli. Giallo=esame · Azzurro=studio · Verde=ripasso.",
+    infoEsami:"📚 Aggiungi esami con data e argomenti. Carica PDF dei tuoi appunti: l'AI li userà per creare domande personalizzate.",
+    infoPiano:"📋 Il piano viene generato automaticamente. Spunta ✓ le sessioni completate e usa 'Quiz AI' per testare ogni argomento.",
+    infoQuiz:"🧠 Scegli esame, argomento e difficoltà. L'AI genera domande in secondi. +1 corretta · −0.33 errata · 0 saltata.",
+    onbQ:[
+      {label:'Prima di tutto...',text:'Come ti chiami?',placeholder:'Il tuo nome'},
+      {label:'Anno di corso',text:'In che anno universitario sei?',options:['Primo anno','Secondo anno','Terzo anno','Fuori corso / Magistrale']},
+      {label:'Come ti senti',text:'Come descriveresti la tua relazione con lo studio?',options:['😎 Abbastanza tranquillo','😐 A volte in difficoltà','😰 Spesso stressato','🤯 In totale panico']},
+      {label:'Stile di studio',text:'Come studi meglio?',options:['📖 Leggo e rileggo','✍️ Scrivo e riassumo','🗣️ Spiego ad alta voce','🃏 Flash card e mappe']},
+      {label:'Disponibilità',text:'Quante ore al giorno puoi dedicare allo studio?',options:['1-2 ore','3-4 ore','5-6 ore','Più di 6 ore']},
+      {label:'Punti deboli',text:'Quali aspetti ti mettono più in difficoltà?',options:['Memorizzare definizioni','Applicare formule','Capire concetti astratti',"Gestire l'ansia",'Concentrarsi a lungo','Organizzare il tempo']},
+      {label:'Obiettivo',text:'Qual è il tuo obiettivo per i prossimi esami?',options:['✅ Passare e basta','📈 Migliorare la media','⭐ Prendere 30 e lode','🎓 Laurearmi in tempo']},
+    ],
+    onbBack:'← Indietro', onbNext:'Avanti →', onbStart:'Inizia 🚀', onbOf:'di',
+    calTitle:'Calendario Studio', months:['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
+    monthsShort:['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'], weekdays:['Lun','Mar','Mer','Gio','Ven','Sab','Dom'],
+    examsPlanned:function(n){ return n+' esam'+(n===1?'e':'i')+' pianificat'+(n===1?'o':'i'); },
+    noEvents:'Nessun evento in questo giorno.', examDayMsg:"Giorno dell'esame. In bocca al lupo!",
+    myExams:'I miei Esami', myExamsSub:'Aggiungi e gestisci i tuoi esami universitari', newExam:'+ Nuovo Esame',
+    noExams:'Nessun esame ancora', noExamsSub:'Aggiungi il tuo primo esame per iniziare a pianificare',
+    daysLeft:'giorni', completed:'completato', pianoBtnLabel:'Piano',
+    addExam:'Aggiungi Esame', addExamSub:'Inserisci i dettagli del tuo esame',
+    subject:'Materia', examDate:'Data Esame', professor:'Professore (opzionale)',
+    subjectPh:'es. Analisi Matematica I', profPh:'es. Prof. Rossi',
+    topics:'Temi / Argomenti', addTopic:'+ Aggiungi tema',
+    pdfLoaded:function(n){ return '✓ '+n+' file caricato'+(n>1?'i':'')+". L'AI userà questi contenuti per i quiz."; },
+    saveExam:'Salva Esame', cancel:'Annulla',
+    subjectLabel:'Materia',
+    pdfDescText:'Carica PDF di appunti, dispense o capitoli del libro. L\'AI userà questi contenuti per generare domande accurate sui tuoi materiali reali.',
+    topicPh:'es. Calcolo differenziale',
+    pwaInstallMsg:'Installa',
+    pwaInstallBtn:'Installa',
+    pwaInstalledMsg:'StudyFlow installato! Aprilo dalla schermata home.',
+    pwaIOSTitle:'Installa StudyFlow su iPhone',
+    pwaIOSInstr:'Tocca <strong>□↑ Condividi</strong> in Safari, poi <strong>"Aggiungi a schermata Home"</strong>',
+    pwaIOSBtn:'Ok, capito',
+    dateLabel:'Data Esame',
+    profLabel:'Professore (opzionale)',
+    topicsLabel:'Temi / Argomenti',
+    pdfMaterial:'📄 Materiale di studio (opzionale)',
+    pdfDrop:'Trascina i PDF qui oppure clicca per selezionarli',
+    pdfDropSub:'Puoi caricare più file PDF (appunti, libro, slide...)',
+    detailsDay:'Dettagli Giorno',
+    calSectionTitle:'Calendario Studio',
+    profPh:'es. Prof. Rossi',
+    subjectPh:'es. Analisi Matematica I',
+    alertSubjectDate:'Inserisci materia e data!', alertTopics:'Aggiungi almeno un tema!',
+    pianoTitle:'Piano di Studio', pianoSub:"Il tuo percorso personalizzato verso l'esame",
+    selectExam:'Seleziona un esame...',
+    daysToExam:function(n){ return '⏳ '+n+" giorni all'esame"; },
+    examToday:'🎯 Esame oggi!', examDone:'✅ Esame completato',
+    emptyPianoTitle:'Seleziona un esame', emptyPianoSub:'Scegli un esame per visualizzare il piano di studio personalizzato',
+    noPlanMsg:"L'esame è già passato o non ci sono abbastanza giorni.",
+    introTag:'Introduzione', studyTag:'Studio', quizTag:'Quiz Tema', reviewTag:'Ripasso',
+    introDesc:function(t){ return 'Inizia lo studio di: <strong>'+t+'</strong>. Leggi, prendi appunti, crea una mappa concettuale.'; },
+    studyDesc:function(t){ return 'Approfondisci: <strong>'+t+'</strong>. Esercizi e esempi pratici.'; },
+    quizDesc:function(t){ return 'Completa lo studio di <strong>'+t+'</strong> e fai il quiz da 15 domande.'; },
+    reviewDesc:'Ripassa tutti i temi. Usa le flashcard e il quiz finale.',
+    revisoGeneral:'🔄 Ripasso Generale', examDayPlan:function(n){ return '🎯 ESAME: '+n; },
+    examDayPlanDesc:"Giorno dell'esame. Hai studiato tutto. Fidati di te stesso!",
+    quizBtn:'🤖 Fai Quiz AI →',
+    quizTitle:'Quiz & Verifiche', quizSub:'Testa la tua preparazione',
+    aiBanner:'Quiz generati da AI', aiBannerSub:"Le domande vengono create da Claude in base ai tuoi temi.",
+    quizAI15:'🤖 AI · 15 domande', quizAI50:'🤖 AI · 50 domande', quizPdf:'📄 PDF',
+    quizFinalTitle:'Simulazione Finale', lastScore:'Ultimo:',
+    noExamsQuiz:'Nessun esame aggiunto', noExamsQuizSub:'Aggiungi prima un esame per generare i quiz',
+    diffTitle:'Scegli la difficoltà', diffSub:'Le domande verranno calibrate al livello selezionato',
+    diffLevels:{facile:{name:'Facile',desc:'Definizioni, concetti base, riconoscimento'},media:{name:'Media',desc:'Comprensione, applicazione semplice'},difficile:{name:'Difficile',desc:'Analisi, ragionamento, casi complessi'},pro:{name:'Pro',desc:'Livello esame: dettagli, eccezioni, sintesi'}},
+    diffStartBtn:'🤖 Genera Quiz →',
+    questionOf:function(c,t){ return 'Domanda '+c+' di '+t; },
+    correct:'Corrette', wrong:'Errate', skipped:'Saltate', score:'Punteggio',
+    skipBtn:'Salta (0 punti)', skipRule:'Corretta: +1 · Errata: −0.33 · Saltata: 0',
+    backBtn:'← Torna', explanationLabel:'💡 Spiegazione:',
+    resultTitle:'Risultato Quiz',
+    grades:["🏆 Eccellente! Sei pronto per l'esame.","⭐ Ottimo risultato! Continua così.","📈 Discreto. Ripassa i punti deboli.","📚 Sufficiente. Devi studiare di più.","❌ Insufficiente. Ricomincia dallo studio."],
+    feedbackGood:function(c,t){ return 'Hai risposto correttamente a '+c+' domande su '+t+'. La tua preparazione è solida.'; },
+    feedbackBad:function(w,s){ return 'Hai '+w+' risposte errate e '+s+' saltate. Rivedi i concetti su cui hai sbagliato.'; },
+    retryBtn:'🔄 Rifai il Quiz', backAllQuiz:'← Tutti i Quiz',
+    profileTitle:'Il mio Profilo', profileSub:'Il tuo percorso di studio personalizzato',
+    studyStyle:'Stile di studio', dailyHours:'Ore disponibili/giorno', goal:'Obiettivo',
+    plannedExams:'Esami pianificati', completedSessions:'Sessioni completate', completedQuizzes:'Quiz completati', avgScore:'Media voti quiz',
+    weaknesses:'⚠️ Punti da Migliorare', noWeakness:'Nessun punto debole identificato',
+    quizHistory:'📊 Storico Quiz', noHistory:'Nessun quiz completato ancora. Inizia a testare la tua preparazione!',
+    aiWorking:'Claude sta lavorando...', aiWorking2:'Sto creando domande reali sul tuo materiale',
+    topicOf:function(c,t){ return 'Tema '+c+'/'+t; }, generating:'Generazione in corso...',
+    aiErrTitle:'Errore nella generazione', aiErrCauses:'💡 Possibili cause:',
+    aiErrList:'• Connessione internet assente<br>• API key non disponibile<br>• PDF troppo grande (max ~10MB)',
+    close:'Chiudi', hoursMap:{'1-2 ore':1.5,'3-4 ore':3.5,'5-6 ore':5.5,'Più di 6 ore':7},
+  },
+  es: {
+    badge:'🎓 Planificador Universitario', title:'Estudia mejor,', title2:'no más.',
+    sub:'Un plan de estudio personalizado para cada examen, con cuestionarios adaptativos y calendario inteligente.',
+    cta:'Empezar ahora →', f1t:'Calendario Visual', f1d:'Visualiza tu plan de estudios mes a mes.',
+    f2t:'Cuestionarios Adaptativos', f2d:'Quiz de 15 preguntas por tema y simulacro final de 50 preguntas.',
+    f3t:'Análisis de Debilidades', f3d:'Identifica dónde necesitas más práctica.',
+    onbLabel:'Cuestionario inicial',
+    navCal:'🗓️ Calendario', navEsami:'📚 Exámenes', navPiano:'📋 Plan', navQuiz:'🧠 Quiz', navProfilo:'👤 Perfil',
+    navCalShort:'Calendario', navEsamiShort:'Exámenes', navPianoShort:'Plan', navProfiloShort:'Perfil',
+    infoCalendar:"📅 Visualiza todos tus exámenes en el calendario. Toca un día para ver los detalles. Amarillo=examen · Azul=estudio · Verde=repaso.",
+    infoEsami:"📚 Añade exámenes con fecha y temas. Sube PDFs de tus apuntes: la IA los usará para crear preguntas personalizadas.",
+    infoPiano:"📋 El plan se genera automáticamente. Marca ✓ las sesiones completadas y usa 'Quiz IA' para cada tema.",
+    infoQuiz:"🧠 Elige examen, tema y dificultad. La IA genera preguntas en segundos. +1 correcta · −0.33 errónea · 0 omitida.",
+    onbQ:[
+      {label:'Primero de todo...',text:'¿Cómo te llamas?',placeholder:'Tu nombre'},
+      {label:'Año de carrera',text:'¿En qué año universitario estás?',options:['Primer año','Segundo año','Tercer año','Fuera de plazo / Máster']},
+      {label:'Cómo te sientes',text:'¿Cómo describirías tu relación con el estudio?',options:['😎 Bastante tranquilo','😐 A veces con dificultades','😰 Con frecuencia estresado','🤯 En total caos']},
+      {label:'Estilo de estudio',text:'¿Cómo estudias mejor?',options:['📖 Leo y releo','✍️ Escribo y resumo','🗣️ Explico en voz alta','🃏 Tarjetas y mapas']},
+      {label:'Disponibilidad',text:'¿Cuántas horas al día puedes dedicar al estudio?',options:['1-2 horas','3-4 horas','5-6 horas','Más de 6 horas']},
+      {label:'Puntos débiles',text:'¿Qué aspectos del estudio te resultan más difíciles?',options:['Memorizar definiciones','Aplicar fórmulas','Entender conceptos abstractos','Gestionar el estrés','Concentrarse durante largo tiempo','Organizar el tiempo']},
+      {label:'Objetivo',text:'¿Cuál es tu objetivo para los próximos exámenes?',options:['✅ Aprobar y ya','📈 Mejorar la nota media','⭐ Sacar matrícula de honor','🎓 Graduarme a tiempo']},
+    ],
+    onbBack:'← Atrás', onbNext:'Siguiente →', onbStart:'Empezar 🚀', onbOf:'de',
+    calTitle:'Calendario de Estudio', months:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+    monthsShort:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'], weekdays:['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'],
+    examsPlanned:function(n){ return n+' examen'+(n===1?'':'es')+' planificado'+(n===1?'':'s'); },
+    noEvents:'No hay eventos en este día.', examDayMsg:'Día del examen. ¡Mucha suerte!',
+    myExams:'Mis Exámenes', myExamsSub:'Añade y gestiona tus exámenes universitarios', newExam:'+ Nuevo Examen',
+    noExams:'Ningún examen todavía', noExamsSub:'Añade tu primer examen para empezar a planificar',
+    daysLeft:'días', completed:'completado', pianoBtnLabel:'Plan',
+    addExam:'Añadir Examen', addExamSub:'Introduce los detalles de tu examen',
+    subject:'Asignatura', examDate:'Fecha del Examen', professor:'Profesor (opcional)',
+    subjectPh:'ej. Cálculo I', profPh:'ej. Prof. García',
+    topics:'Temas / Contenidos', addTopic:'+ Añadir tema',
+    pdfLoaded:function(n){ return '✓ '+n+' archivo'+(n>1?'s':'')+' cargado'+(n>1?'s':'')+'. La IA usará estos contenidos para los quiz.'; },
+    saveExam:'Guardar Examen', cancel:'Cancelar',
+    subjectLabel:'Asignatura',
+    pdfDescText:'Sube PDFs de apuntes, apuntes o capítulos del libro. La IA usará estos contenidos para generar preguntas precisas sobre tu material real.',
+    topicPh:'ej. Cálculo diferencial',
+    pwaInstallMsg:'Instala',
+    pwaInstallBtn:'Instalar',
+    pwaInstalledMsg:'¡StudyFlow instalado! Ábrelo desde la pantalla de inicio.',
+    pwaIOSTitle:'Instala StudyFlow en iPhone',
+    pwaIOSInstr:'Toca <strong>□↑ Compartir</strong> en Safari, luego <strong>"Añadir a pantalla de inicio"</strong>',
+    pwaIOSBtn:'Entendido',
+    dateLabel:'Fecha del Examen',
+    profLabel:'Profesor (opcional)',
+    topicsLabel:'Temas / Contenidos',
+    pdfMaterial:'📄 Material de estudio (opcional)',
+    pdfDrop:'Arrastra los PDF aquí o haz clic para seleccionarlos',
+    pdfDropSub:'Puedes cargar varios archivos PDF (apuntes, libro, diapositivas...)',
+    detailsDay:'Detalles del Día',
+    calSectionTitle:'Calendario de Estudio',
+    profPh:'ej. Prof. García',
+    subjectPh:'ej. Cálculo I',
+    alertSubjectDate:'¡Introduce asignatura y fecha!', alertTopics:'¡Añade al menos un tema!',
+    pianoTitle:'Plan de Estudio', pianoSub:'Tu camino personalizado hacia el examen',
+    selectExam:'Selecciona un examen...',
+    daysToExam:function(n){ return '⏳ '+n+' días para el examen'; },
+    examToday:'🎯 ¡Examen hoy!', examDone:'✅ Examen completado',
+    emptyPianoTitle:'Selecciona un examen', emptyPianoSub:'Elige un examen para ver el plan de estudio personalizado',
+    noPlanMsg:'El examen ya pasó o no hay suficientes días.',
+    introTag:'Introducción', studyTag:'Estudio', quizTag:'Quiz Tema', reviewTag:'Repaso',
+    introDesc:function(t){ return 'Empieza el estudio de: <strong>'+t+'</strong>. Lee, toma apuntes, crea un mapa conceptual.'; },
+    studyDesc:function(t){ return 'Profundiza en: <strong>'+t+'</strong>. Ejercicios y ejemplos prácticos.'; },
+    quizDesc:function(t){ return 'Completa el estudio de <strong>'+t+'</strong> y haz el quiz de 15 preguntas.'; },
+    reviewDesc:'Repasa todos los temas. Usa las tarjetas y el quiz final.',
+    revisoGeneral:'🔄 Repaso General', examDayPlan:function(n){ return '🎯 EXAMEN: '+n; },
+    examDayPlanDesc:'Día del examen. Has estudiado todo. ¡Confía en ti mismo!',
+    quizBtn:'🤖 Hacer Quiz IA →',
+    quizTitle:'Quiz & Verificaciones', quizSub:'Pon a prueba tu preparación',
+    aiBanner:'Quiz generados por IA', aiBannerSub:'Las preguntas las crea Claude según tus temas.',
+    quizAI15:'🤖 IA · 15 preguntas', quizAI50:'🤖 IA · 50 preguntas', quizPdf:'📄 PDF',
+    quizFinalTitle:'Simulacro Final', lastScore:'Último:',
+    noExamsQuiz:'Ningún examen añadido', noExamsQuizSub:'Añade primero un examen para generar los quiz',
+    diffTitle:'Elige la dificultad', diffSub:'Las preguntas se calibrarán al nivel seleccionado',
+    diffLevels:{facile:{name:'Fácil',desc:'Definiciones, conceptos básicos, reconocimiento'},media:{name:'Media',desc:'Comprensión, aplicación sencilla'},difficile:{name:'Difícil',desc:'Análisis, razonamiento, casos complejos'},pro:{name:'Pro',desc:'Nivel examen: detalles, excepciones, síntesis'}},
+    diffStartBtn:'🤖 Generar Quiz →',
+    questionOf:function(c,t){ return 'Pregunta '+c+' de '+t; },
+    correct:'Correctas', wrong:'Erróneas', skipped:'Omitidas', score:'Puntuación',
+    skipBtn:'Saltar (0 puntos)', skipRule:'Correcta: +1 · Errónea: −0.33 · Omitida: 0',
+    backBtn:'← Volver', explanationLabel:'💡 Explicación:',
+    resultTitle:'Resultado del Quiz',
+    grades:['🏆 ¡Excelente! Estás listo para el examen.','⭐ ¡Muy buen resultado! Sigue así.','📈 Bien. Repasa los puntos débiles.','📚 Suficiente. Debes estudiar más.','❌ Insuficiente. Vuelve a estudiar.'],
+    feedbackGood:function(c,t){ return 'Respondiste correctamente a '+c+' preguntas de '+t+'. Tu preparación es sólida.'; },
+    feedbackBad:function(w,s){ return 'Tienes '+w+' respuestas erróneas y '+s+' omitidas.'; },
+    retryBtn:'🔄 Repetir Quiz', backAllQuiz:'← Todos los Quiz',
+    profileTitle:'Mi Perfil', profileSub:'Tu recorrido de estudio personalizado',
+    studyStyle:'Estilo de estudio', dailyHours:'Horas disponibles/día', goal:'Objetivo',
+    plannedExams:'Exámenes planificados', completedSessions:'Sesiones completadas', completedQuizzes:'Quiz completados', avgScore:'Nota media quiz',
+    weaknesses:'⚠️ Puntos a Mejorar', noWeakness:'Ningún punto débil identificado',
+    quizHistory:'📊 Historial de Quiz', noHistory:'Ningún quiz completado todavía.',
+    aiWorking:'Claude está trabajando...', aiWorking2:'Creando preguntas reales sobre tu material',
+    topicOf:function(c,t){ return 'Tema '+c+'/'+t; }, generating:'Generando...',
+    aiErrTitle:'Error en la generación', aiErrCauses:'💡 Posibles causas:',
+    aiErrList:'• Sin conexión a internet<br>• API key no disponible<br>• PDF demasiado grande (máx ~10MB)',
+    close:'Cerrar', hoursMap:{'1-2 horas':1.5,'3-4 horas':3.5,'5-6 horas':5.5,'Más de 6 horas':7},
+  },
+  fr: {
+    badge:'🎓 Planificateur Universitaire', title:'Étudie mieux,', title2:'pas plus.',
+    sub:"Un plan d'étude personnalisé pour chaque examen, avec des quiz adaptatifs et un calendrier intelligent.",
+    cta:'Commencer →', f1t:'Calendrier Visuel', f1d:"Visualise ton plan d'études mois par mois.",
+    f2t:'Quiz Adaptatifs', f2d:'Quiz de 15 questions par thème et simulation finale de 50 questions.',
+    f3t:'Analyse des Faiblesses', f3d:"Identifie où tu as besoin de plus de pratique.",
+    onbLabel:'Questionnaire initial',
+    navCal:'🗓️ Calendrier', navEsami:'📚 Examens', navPiano:'📋 Plan', navQuiz:'🧠 Quiz', navProfilo:'👤 Profil',
+    navCalShort:'Calendrier', navEsamiShort:'Examens', navPianoShort:'Plan', navProfiloShort:'Profil',
+    infoCalendar:"📅 Visualise tous tes examens sur le calendrier. Touche un jour pour voir les détails. Jaune=examen · Bleu=étude · Vert=révision.",
+    infoEsami:"📚 Ajoute des examens avec date et thèmes. Charge des PDFs de tes notes : l'IA les utilisera pour créer des questions personnalisées.",
+    infoPiano:"📋 Le plan est généré automatiquement. Coche ✓ les sessions terminées et utilise 'Quiz IA' pour chaque thème.",
+    infoQuiz:"🧠 Choisis examen, thème et difficulté. L'IA génère des questions en quelques secondes. +1 correcte · −0.33 erreur · 0 passée.",
+    onbQ:[
+      {label:"Tout d'abord...",text:"Comment tu t'appelles ?",placeholder:'Ton prénom'},
+      {label:'Année universitaire',text:'En quelle année universitaire es-tu ?',options:['Première année','Deuxième année','Troisième année','Hors délai / Master']},
+      {label:'Comment tu te sens',text:'Comment décrirais-tu ta relation avec les études ?',options:['😎 Assez tranquille','😐 Parfois en difficulté','😰 Souvent stressé','🤯 En total chaos']},
+      {label:"Style d'étude",text:'Comment étudies-tu le mieux ?',options:["📖 Je lis et relis","✍️ J'écris et résume","🗣️ J'explique à voix haute","🃏 Fiches et cartes mentales"]},
+      {label:'Disponibilité',text:"Combien d'heures par jour peux-tu consacrer aux études ?",options:['1-2 heures','3-4 heures','5-6 heures','Plus de 6 heures']},
+      {label:'Points faibles',text:'Quels aspects des études te posent le plus de difficultés ?',options:['Mémoriser les définitions','Appliquer les formules','Comprendre les concepts abstraits','Gérer le stress','Se concentrer longtemps','Organiser son temps']},
+      {label:'Objectif',text:'Quel est ton objectif pour les prochains examens ?',options:['✅ Juste valider','📈 Améliorer la moyenne','⭐ Obtenir une mention','🎓 Terminer à temps']},
+    ],
+    onbBack:'← Retour', onbNext:'Suivant →', onbStart:'Commencer 🚀', onbOf:'sur',
+    calTitle:"Calendrier d'Étude", months:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+    monthsShort:['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'], weekdays:['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],
+    examsPlanned:function(n){ return n+' examen'+(n>1?'s':'')+' planifié'+(n>1?'s':''); },
+    noEvents:'Aucun événement ce jour.', examDayMsg:"Jour de l'examen. Bonne chance !",
+    myExams:'Mes Examens', myExamsSub:'Ajoute et gère tes examens universitaires', newExam:'+ Nouvel Examen',
+    noExams:'Aucun examen encore', noExamsSub:"Ajoute ton premier examen pour commencer à planifier",
+    daysLeft:'jours', completed:'terminé', pianoBtnLabel:'Plan',
+    addExam:'Ajouter un Examen', addExamSub:'Saisis les détails de ton examen',
+    subject:'Matière', examDate:"Date de l'Examen", professor:'Professeur (optionnel)',
+    subjectPh:'ex. Analyse I', profPh:'ex. Prof. Dupont',
+    topics:'Thèmes / Sujets', addTopic:'+ Ajouter un thème',
+    pdfLoaded:function(n){ return '✓ '+n+' fichier'+(n>1?'s':'')+' chargé'+(n>1?'s':'')+". L'IA utilisera ces contenus pour les quiz."; },
+    saveExam:"Sauvegarder l'Examen", cancel:'Annuler',
+    subjectLabel:'Matière',
+    pdfDescText:"Charge des PDFs de notes, polycopiés ou chapitres du livre. L'IA utilisera ces contenus pour générer des questions précises sur ton matériel réel.",
+    topicPh:'ex. Calcul différentiel',
+    pwaInstallMsg:'Installe',
+    pwaInstallBtn:'Installer',
+    pwaInstalledMsg:'StudyFlow installé ! Ouvre-le depuis l\'écran d\'accueil.',
+    pwaIOSTitle:'Installe StudyFlow sur iPhone',
+    pwaIOSInstr:'Appuie sur <strong>□↑ Partager</strong> dans Safari, puis <strong>"Sur l\'écran d\'accueil"</strong>',
+    pwaIOSBtn:'Compris',
+    dateLabel:"Date de l'Examen",
+    profLabel:'Professeur (optionnel)',
+    topicsLabel:'Thèmes / Sujets',
+    pdfMaterial:"📄 Matériel d'étude (optionnel)",
+    pdfDrop:'Glisse les PDF ici ou clique pour les sélectionner',
+    pdfDropSub:'Tu peux charger plusieurs fichiers PDF (notes, livre, slides...)',
+    detailsDay:'Détails du Jour',
+    calSectionTitle:"Calendrier d'Étude",
+    profPh:'ex. Prof. Dupont',
+    subjectPh:'ex. Analyse I',
+    alertSubjectDate:'Saisis la matière et la date !', alertTopics:"Ajoute au moins un thème !",
+    pianoTitle:"Plan d'Étude", pianoSub:"Ton parcours personnalisé vers l'examen",
+    selectExam:'Sélectionne un examen...',
+    daysToExam:function(n){ return '⏳ '+n+" jours avant l'examen"; },
+    examToday:"🎯 Examen aujourd'hui !", examDone:'✅ Examen terminé',
+    emptyPianoTitle:'Sélectionne un examen', emptyPianoSub:"Choisis un examen pour voir le plan d'étude personnalisé",
+    noPlanMsg:"L'examen est déjà passé ou il n'y a pas assez de jours.",
+    introTag:'Introduction', studyTag:'Étude', quizTag:'Quiz Thème', reviewTag:'Révision',
+    introDesc:function(t){ return "Commence l'étude de : <strong>"+t+"</strong>. Lis, prends des notes, crée une carte mentale."; },
+    studyDesc:function(t){ return 'Approfondis : <strong>'+t+'</strong>. Exercices et exemples pratiques.'; },
+    quizDesc:function(t){ return "Complète l'étude de <strong>"+t+"</strong> et fais le quiz de 15 questions."; },
+    reviewDesc:'Révise tous les thèmes. Utilise les fiches et le quiz final.',
+    revisoGeneral:'🔄 Révision Générale', examDayPlan:function(n){ return '🎯 EXAMEN : '+n; },
+    examDayPlanDesc:"Jour de l'examen. Tu as tout étudié. Fais confiance à toi-même !",
+    quizBtn:'🤖 Faire Quiz IA →',
+    quizTitle:'Quiz & Vérifications', quizSub:'Teste ta préparation',
+    aiBanner:'Quiz générés par IA', aiBannerSub:"Les questions sont créées par Claude selon tes thèmes.",
+    quizAI15:'🤖 IA · 15 questions', quizAI50:'🤖 IA · 50 questions', quizPdf:'📄 PDF',
+    quizFinalTitle:'Simulation Finale', lastScore:'Dernier :',
+    noExamsQuiz:'Aucun examen ajouté', noExamsQuizSub:"Ajoute d'abord un examen pour générer les quiz",
+    diffTitle:'Choisis la difficulté', diffSub:'Les questions seront calibrées au niveau sélectionné',
+    diffLevels:{facile:{name:'Facile',desc:'Définitions, concepts de base, reconnaissance'},media:{name:'Moyen',desc:'Compréhension, application simple'},difficile:{name:'Difficile',desc:'Analyse, raisonnement, cas complexes'},pro:{name:'Pro',desc:'Niveau examen : détails, exceptions, synthèse'}},
+    diffStartBtn:'🤖 Générer Quiz →',
+    questionOf:function(c,t){ return 'Question '+c+' sur '+t; },
+    correct:'Correctes', wrong:'Erronées', skipped:'Sautées', score:'Score',
+    skipBtn:'Passer (0 point)', skipRule:'Correcte : +1 · Erreur : −0.33 · Passée : 0',
+    backBtn:'← Retour', explanationLabel:'💡 Explication :',
+    resultTitle:'Résultat du Quiz',
+    grades:["🏆 Excellent ! Tu es prêt pour l'examen.","⭐ Très bon résultat ! Continue comme ça.","📈 Pas mal. Révise les points faibles.","📚 Suffisant. Tu dois étudier davantage.","❌ Insuffisant. Recommence depuis le début."],
+    feedbackGood:function(c,t){ return 'Tu as répondu correctement à '+c+' questions sur '+t+'. Ta préparation est solide.'; },
+    feedbackBad:function(w,s){ return 'Tu as '+w+' réponses erronées et '+s+' questions sautées.'; },
+    retryBtn:'🔄 Refaire le Quiz', backAllQuiz:'← Tous les Quiz',
+    profileTitle:'Mon Profil', profileSub:"Ton parcours d'étude personnalisé",
+    studyStyle:"Style d'étude", dailyHours:'Heures disponibles/jour', goal:'Objectif',
+    plannedExams:'Examens planifiés', completedSessions:'Sessions complétées', completedQuizzes:'Quiz complétés', avgScore:'Note moyenne quiz',
+    weaknesses:'⚠️ Points à Améliorer', noWeakness:'Aucun point faible identifié',
+    quizHistory:'📊 Historique Quiz', noHistory:"Aucun quiz complété. Commence à tester ta préparation !",
+    aiWorking:'Claude travaille...', aiWorking2:'Création de vraies questions sur ton matériel',
+    topicOf:function(c,t){ return 'Thème '+c+'/'+t; }, generating:'Génération en cours...',
+    aiErrTitle:'Erreur de génération', aiErrCauses:'💡 Causes possibles :',
+    aiErrList:'• Pas de connexion internet<br>• Clé API non disponible<br>• PDF trop volumineux (max ~10 Mo)',
+    close:'Fermer', hoursMap:{'1-2 heures':1.5,'3-4 heures':3.5,'5-6 heures':5.5,'Plus de 6 heures':7},
+  },
+  en: {
+    badge:'🎓 University Planner', title:'Study smarter,', title2:'not harder.',
+    sub:'A personalized study plan for every exam, with adaptive quizzes and an intelligent calendar.',
+    cta:'Get started →', f1t:'Visual Calendar', f1d:'Visualize your study plan on an interactive calendar.',
+    f2t:'Adaptive Quizzes', f2d:'15-question quizzes per topic and a final 50-question simulation.',
+    f3t:'Weakness Analysis', f3d:'Identify where you need more practice.',
+    onbLabel:'Initial questionnaire',
+    navCal:'🗓️ Calendar', navEsami:'📚 Exams', navPiano:'📋 Plan', navQuiz:'🧠 Quiz', navProfilo:'👤 Profile',
+    navCalShort:'Calendar', navEsamiShort:'Exams', navPianoShort:'Plan', navProfiloShort:'Profile',
+    infoCalendar:"📅 View all your exams on the calendar. Tap a day for details. Yellow=exam · Blue=study · Green=review.",
+    infoEsami:"📚 Add exams with date and topics. Upload PDF notes: AI will use them to create personalized questions.",
+    infoPiano:"📋 The plan is auto-generated. Check ✓ completed sessions and use 'AI Quiz' for each topic.",
+    infoQuiz:"🧠 Choose exam, topic and difficulty. AI generates questions in seconds. +1 correct · −0.33 wrong · 0 skipped.",
+    onbQ:[
+      {label:'First of all...',text:"What's your name?",placeholder:'Your name'},
+      {label:'Year of study',text:'What year of university are you in?',options:['First year','Second year','Third year',"Grad student / Master's"]},
+      {label:'How you feel',text:'How would you describe your relationship with studying?',options:['😎 Pretty relaxed','😐 Sometimes struggling','😰 Often stressed','🤯 Total chaos']},
+      {label:'Study style',text:'How do you study best?',options:['📖 Read and re-read','✍️ Write summaries','🗣️ Explain out loud','🃏 Flashcards & mind maps']},
+      {label:'Availability',text:'How many hours a day can you dedicate to studying?',options:['1-2 hours','3-4 hours','5-6 hours','More than 6 hours']},
+      {label:'Weak points',text:'Which aspects of studying are hardest for you?',options:['Memorizing definitions','Applying formulas','Understanding abstract concepts','Managing exam anxiety','Staying focused','Time management']},
+      {label:'Goal',text:"What's your goal for the next exams?",options:['✅ Just pass','📈 Improve my GPA','⭐ Get top marks','🎓 Graduate on time']},
+    ],
+    onbBack:'← Back', onbNext:'Next →', onbStart:"Let's go 🚀", onbOf:'of',
+    calTitle:'Study Calendar', months:['January','February','March','April','May','June','July','August','September','October','November','December'],
+    monthsShort:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], weekdays:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    examsPlanned:function(n){ return n+' exam'+(n===1?'':'s')+' planned'; },
+    noEvents:'No events on this day.', examDayMsg:'Exam day. Good luck!',
+    myExams:'My Exams', myExamsSub:'Add and manage your university exams', newExam:'+ New Exam',
+    noExams:'No exams yet', noExamsSub:'Add your first exam to start planning your study',
+    daysLeft:'days', completed:'done', pianoBtnLabel:'Plan',
+    addExam:'Add Exam', addExamSub:'Enter your exam details',
+    subject:'Subject', examDate:'Exam Date', professor:'Professor (optional)',
+    subjectPh:'e.g. Calculus I', profPh:'e.g. Prof. Smith',
+    topics:'Topics / Content', addTopic:'+ Add topic',
+    pdfLoaded:function(n){ return '✓ '+n+' file'+(n>1?'s':'')+' loaded. AI will use these for quiz generation.'; },
+    saveExam:'Save Exam', cancel:'Cancel',
+    subjectLabel:'Subject',
+    pdfDescText:'Upload PDF notes, handouts or book chapters. AI will use this content to generate accurate questions based on your real study materials.',
+    topicPh:'e.g. Differential Calculus',
+    pwaInstallMsg:'Install',
+    pwaInstallBtn:'Install',
+    pwaInstalledMsg:'StudyFlow installed! Open it from your home screen.',
+    pwaIOSTitle:'Install StudyFlow on iPhone',
+    pwaIOSInstr:'Tap <strong>□↑ Share</strong> in Safari, then <strong>"Add to Home Screen"</strong>',
+    pwaIOSBtn:'Got it',
+    dateLabel:'Exam Date',
+    profLabel:'Professor (optional)',
+    topicsLabel:'Topics / Content',
+    pdfMaterial:'📄 Study material (optional)',
+    pdfDrop:'Drag PDFs here or click to select them',
+    pdfDropSub:'You can upload multiple PDF files (notes, textbook, slides...)',
+    detailsDay:'Day Details',
+    calSectionTitle:'Study Calendar',
+    profPh:'e.g. Prof. Smith',
+    subjectPh:'e.g. Calculus I',
+    alertSubjectDate:'Please enter subject and date!', alertTopics:'Please add at least one topic!',
+    pianoTitle:'Study Plan', pianoSub:'Your personalized path to the exam',
+    selectExam:'Select an exam...',
+    daysToExam:function(n){ return '⏳ '+n+' days to exam'; },
+    examToday:'🎯 Exam today!', examDone:'✅ Exam completed',
+    emptyPianoTitle:'Select an exam', emptyPianoSub:'Choose an exam to view your personalized study plan',
+    noPlanMsg:'The exam has already passed or there are not enough days.',
+    introTag:'Introduction', studyTag:'Study', quizTag:'Topic Quiz', reviewTag:'Review',
+    introDesc:function(t){ return 'Start studying: <strong>'+t+'</strong>. Read, take notes, create a concept map.'; },
+    studyDesc:function(t){ return 'Go deeper into: <strong>'+t+'</strong>. Exercises and practical examples.'; },
+    quizDesc:function(t){ return 'Finish studying <strong>'+t+'</strong> and take the 15-question quiz.'; },
+    reviewDesc:'Review all topics. Use flashcards and the final quiz.',
+    revisoGeneral:'🔄 General Review', examDayPlan:function(n){ return '🎯 EXAM: '+n; },
+    examDayPlanDesc:"Exam day. You've studied everything. Trust yourself!",
+    quizBtn:'🤖 Take AI Quiz →',
+    quizTitle:'Quizzes & Tests', quizSub:'Test your preparation',
+    aiBanner:'AI-generated quizzes', aiBannerSub:'Questions are created by Claude based on your topics.',
+    quizAI15:'🤖 AI · 15 questions', quizAI50:'🤖 AI · 50 questions', quizPdf:'📄 PDF',
+    quizFinalTitle:'Final Simulation', lastScore:'Last:',
+    noExamsQuiz:'No exams added', noExamsQuizSub:'Add an exam first to generate quizzes',
+    diffTitle:'Choose difficulty', diffSub:'Questions will be calibrated to the selected level',
+    diffLevels:{facile:{name:'Easy',desc:'Definitions, basic concepts, recognition'},media:{name:'Medium',desc:'Understanding, simple application'},difficile:{name:'Hard',desc:'Analysis, reasoning, complex cases'},pro:{name:'Pro',desc:'Exam level: details, exceptions, synthesis'}},
+    diffStartBtn:'🤖 Generate Quiz →',
+    questionOf:function(c,t){ return 'Question '+c+' of '+t; },
+    correct:'Correct', wrong:'Wrong', skipped:'Skipped', score:'Score',
+    skipBtn:'Skip (0 points)', skipRule:'Correct: +1 · Wrong: −0.33 · Skipped: 0',
+    backBtn:'← Back', explanationLabel:'💡 Explanation:',
+    resultTitle:'Quiz Result',
+    grades:["🏆 Excellent! You're ready for the exam.","⭐ Great result! Keep it up.","📈 Decent. Review your weak points.","📚 Sufficient. You need to study more.","❌ Insufficient. Start studying from scratch."],
+    feedbackGood:function(c,t){ return 'You answered '+c+' out of '+t+' questions correctly. Your preparation is solid.'; },
+    feedbackBad:function(w,s){ return 'You have '+w+' wrong answers and '+s+' skipped. Review the concepts you got wrong.'; },
+    retryBtn:'🔄 Retake Quiz', backAllQuiz:'← All Quizzes',
+    profileTitle:'My Profile', profileSub:'Your personalized study journey',
+    studyStyle:'Study style', dailyHours:'Available hours/day', goal:'Goal',
+    plannedExams:'Planned exams', completedSessions:'Completed sessions', completedQuizzes:'Completed quizzes', avgScore:'Average quiz score',
+    weaknesses:'⚠️ Areas to Improve', noWeakness:'No weak points identified',
+    quizHistory:'📊 Quiz History', noHistory:"No quizzes completed yet. Start testing your preparation!",
+    aiWorking:'Claude is working...', aiWorking2:'Creating real questions from your material',
+    topicOf:function(c,t){ return 'Topic '+c+'/'+t; }, generating:'Generating...',
+    aiErrTitle:'Generation error', aiErrCauses:'💡 Possible causes:',
+    aiErrList:'• No internet connection<br>• API key not available<br>• PDF too large (max ~10MB)',
+    close:'Close', hoursMap:{'1-2 hours':1.5,'3-4 hours':3.5,'5-6 hours':5.5,'More than 6 hours':7},
+  },
+};
+
+function tr() { return T[currentLang] || T.it; }
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  currentLang = lang;
+  ['it','es','fr','en'].forEach(function(l) {
+    document.querySelectorAll('[id^="lang-'+l+'"]').forEach(function(btn) {
+      btn.classList.toggle('active', l === lang);
+    });
+  });
+  var langQ = tr().onbQ;
+  if (langQ) {
+    onboardingQuestions.forEach(function(q, i) {
+      if (!langQ[i]) return;
+      q.label = langQ[i].label;
+      q.text  = langQ[i].text;
+      if (langQ[i].placeholder) q.placeholder = langQ[i].placeholder;
+      if (langQ[i].options)     q.options = langQ[i].options;
+    });
+  }
+  var welcomeActive = document.getElementById('screen-welcome').classList.contains('active');
+  var onbActive     = document.getElementById('screen-onboarding').classList.contains('active');
+  if (welcomeActive) {
+    _applyWelcome();
+  } else if (onbActive) {
+    renderOnboardingStep();
+  } else {
+    _applyApp();
+    renderAll();
+  }
+}
+
+function _applyWelcome() {
+  var L = tr();
+  function s(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+  s('w-badge', L.badge); s('w-title', L.title); s('w-title2', L.title2);
+  s('w-sub', L.sub); s('w-cta', L.cta);
+  s('f1-title', L.f1t); s('f1-desc', L.f1d);
+  s('f2-title', L.f2t); s('f2-desc', L.f2d);
+  s('f3-title', L.f3t); s('f3-desc', L.f3d);
+}
+
+function _applyApp() {
+  var L = tr();
+  function s(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+  // Bottom nav labels
+  s('bnav-lbl-dashboard', L.navCalShort || 'Cal');
+  s('bnav-lbl-esami',     L.navEsamiShort || 'Esami');
+  s('bnav-lbl-piano',     L.navPianoShort || 'Piano');
+  s('bnav-lbl-quiz',      'Quiz');
+  s('bnav-lbl-profilo',   L.navProfiloShort || 'Profilo');
+  // Desktop nav labels
+  s('dnav-dashboard', L.navCal); s('dnav-esami', L.navEsami);
+  s('dnav-piano', L.navPiano); s('dnav-quiz', L.navQuiz); s('dnav-profilo', L.navProfilo);
+  // Section headers
+  s('esami-title', L.myExams); s('esami-sub', L.myExamsSub); s('new-exam-btn', L.newExam);
+  s('piano-title', L.pianoTitle); s('piano-sub', L.pianoSub);
+  s('quiz-section-title', L.quizTitle); s('quiz-section-sub', L.quizSub);
+  s('cal-section-title', L.calSectionTitle || L.calTitle || 'Calendario Studio');
+  // Exam modal
+  s('modal-exam-title', L.addExam);
+  s('modal-exam-sub', L.addExamSub);
+  s('lbl-subject', L.subjectLabel || L.subject);
+  s('lbl-date', L.dateLabel || L.examDate);
+  s('lbl-prof', L.profLabel || L.professor);
+  s('lbl-topics', L.topicsLabel || L.topics);
+  s('add-tema-btn', L.addTopic);
+  s('lbl-pdf-material', L.pdfMaterial);
+  s('pdf-drop-text', L.pdfDrop);
+  s('pdf-drop-sub', L.pdfDropSub);
+  s('save-exam-btn', L.saveExam);
+  s('cancel-exam-btn', L.cancel);
+  s('modal-day-title', L.detailsDay);
+  // Update placeholders
+  var nameInput = document.getElementById('exam-name');
+  if(nameInput) nameInput.placeholder = L.subjectPh || '';
+  var profInput = document.getElementById('exam-prof');
+  if(profInput) profInput.placeholder = L.profPh || '';
+  // Piano selector placeholder
+  var pianoPlaceholder = document.getElementById('piano-selector-placeholder');
+  if(pianoPlaceholder) pianoPlaceholder.textContent = L.selectExam;
+  s('pdf-desc-text', L.pdfDescText || '');
+  if (L.diffLevels) {
+    Object.keys(L.diffLevels).forEach(function(key) {
+      var btn = document.querySelector('.diff-btn[data-d="'+key+'"]');
+      if (!btn) return;
+      var nameEl = btn.querySelector('.diff-name');
+      var descEl = btn.querySelector('.diff-desc');
+      if (nameEl) nameEl.textContent = L.diffLevels[key].name;
+      if (descEl) descEl.textContent = L.diffLevels[key].desc;
+    });
+    s('diff-modal-title', L.diffTitle);
+    s('diff-modal-sub', L.diffSub);
+    s('diff-start-btn', L.diffStartBtn);
+    updateDiffInfo(state.difficulty);
+  }
+}
+
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+const state = {
+  student: { name:'', anno:'', corso:'', stileStudio:'', orePossibili:2, puntiDeboli:[], quizScores:[] },
+  esami: [],
+  completed: {},
+  calYear: new Date().getFullYear(),
+  calMonth: new Date().getMonth(),
+  currentQuiz: null,
+  quizState: null,
+  difficulty: 'media', // facile | media | difficile | pro
+};
+
+// ─── ONBOARDING ──────────────────────────────────────────────────────────────
+const onboardingQuestions = [
+  { id:'name', type:'text', label:'Prima di tutto...', text:'Come ti chiami?', placeholder:'Il tuo nome' },
+  { id:'anno', type:'single', label:'Anno di corso', text:'In che anno universitario sei?', options:['Primo anno','Secondo anno','Terzo anno','Fuori corso / Magistrale'] },
+  { id:'stress', type:'single', label:'Come ti senti', text:'Come descriveresti la tua relazione con lo studio?', options:['😎 Abbastanza tranquillo','😐 A volte in difficoltà','😰 Spesso stressato','🤯 In totale panico'] },
+  { id:'style', type:'single', label:'Stile di studio', text:'Come studi meglio?', options:['📖 Leggo e rileggo','✍️ Scrivo e riassumo','🗣️ Spiego ad alta voce','🃏 Flash card e mappe'] },
+  { id:'hours', type:'single', label:'Disponibilità', text:'Quante ore al giorno puoi dedicare allo studio (in media)?', options:['1-2 ore','3-4 ore','5-6 ore','Più di 6 ore'] },
+  { id:'weakness', type:'multi', label:'Punti deboli', text:'Quali aspetti dello studio ti mettono più in difficoltà? (puoi sceglierne più di uno)', options:['Memorizzare definizioni','Applicare formule','Capire concetti astratti','Gestire l\'ansia da esame','Concentrarsi a lungo','Organizzare il tempo'] },
+  { id:'goal', type:'single', label:'Obiettivo', text:'Qual è il tuo obiettivo per i prossimi esami?', options:['✅ Passare e basta','📈 Migliorare la media','⭐ Prendere 30 e lode','🎓 Laurearmi in tempo'] },
+];
+
+let onboardingStep = 0;
+let onboardingAnswers = {};
+let multiSelected = [];
+
+function startOnboarding() {
+  showScreen('screen-onboarding');
+  onboardingStep = 0;
+  onboardingAnswers = {};
+  renderOnboardingStep();
+}
+
+function renderOnboardingStep() {
+  const q = onboardingQuestions[onboardingStep];
+  const total = onboardingQuestions.length;
+  // Step dots
+  let dots = '';
+  for(let i=0;i<total;i++) dots += `<div class="step-dot ${i<onboardingStep?'done':i===onboardingStep?'active':''}"></div>`;
+  document.getElementById('step-indicator').innerHTML = dots;
+  multiSelected = [];
+
+  let optionsHtml = '';
+  if(q.type==='text') {
+    const prev = onboardingAnswers[q.id] || '';
+    optionsHtml = `<input class="input-field" id="onb-input" placeholder="${q.placeholder}" value="${prev}" style="margin-bottom:16px;" onkeydown="if(event.key==='Enter')onbNext()">`;
+  } else if(q.type==='single') {
+    optionsHtml = '<div class="options-grid">' + q.options.map(function(o,i){ var L='ABCD'[i]?('<span class="option-letter">'+'ABCD'[i]+'</span>'):''; return '<button class="option-btn" onclick="selectOnbOption(this,\''+q.id+'\',\''+o.replace(/'/g,'\\\'')+'\',' +i+ ')">' +L+ '<span>'+o+'</span></button>'; }).join('') + '</div>';
+  } else if(q.type==='multi') {
+    optionsHtml = '<div class="options-grid">' + q.options.map(function(o,i){ var L='ABCDEF'[i]?('<span class="option-letter">'+'ABCDEF'[i]+'</span>'):''; return '<button class="option-btn" id="multi-opt-'+i+'" onclick="toggleMulti('+i+',\''+o.replace(/'/g,'\\\'')+'\'  ,this)">'+L+'<span>'+o+'</span></button>'; }).join('') + '</div>';
+  }
+
+  const isLast = onboardingStep === total-1;
+  var backBtn = onboardingStep>0 ? '<button class="btn btn-secondary btn-sm" onclick="onbBack()">'+tr().onbBack+'</button>' : '<div></div>';
+  var nextBtn = q.type==='multi' ? '<button class="btn btn-primary btn-sm" onclick="onbNextMulti()">'+tr().onbNext+'</button>' : (q.type==='text' ? '<button class="btn btn-primary btn-sm" onclick="onbNext()">'+(isLast?tr().onbStart:tr().onbNext)+'</button>' : '<div></div>');
+  document.getElementById('onboarding-card').innerHTML = '<div class="question-label">'+q.label+'</div><div class="question-text">'+q.text+'</div>'+optionsHtml+'<div class="nav-btns">'+backBtn+'<span class="progress-text">'+(onboardingStep+1)+' '+tr().onbOf+' '+total+'</span>'+nextBtn+'</div>';
+}
+
+function selectOnbOption(el, id, val, idx) {
+  document.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  onboardingAnswers[id] = val;
+  setTimeout(()=>onbNext(), 300);
+}
+
+function toggleMulti(idx, val, el) {
+  const i = multiSelected.indexOf(val);
+  if(i===-1){ multiSelected.push(val); el.classList.add('selected'); }
+  else { multiSelected.splice(i,1); el.classList.remove('selected'); }
+}
+
+function onbNextMulti() {
+  const q = onboardingQuestions[onboardingStep];
+  onboardingAnswers[q.id] = multiSelected;
+  onbNext(true);
+}
+
+function onbNext(skipRead=false) {
+  if(!skipRead) {
+    const q = onboardingQuestions[onboardingStep];
+    if(q.type==='text') {
+      const v = document.getElementById('onb-input')?.value?.trim();
+      if(!v){ alert(tr().onbNext); return; }
+      onboardingAnswers[q.id] = v;
+    }
+  }
+  if(onboardingStep < onboardingQuestions.length-1) { onboardingStep++; renderOnboardingStep(); }
+  else { finishOnboarding(); }
+}
+function onbBack() { if(onboardingStep>0){ onboardingStep--; renderOnboardingStep(); } }
+
+function finishOnboarding() {
+  const a = onboardingAnswers;
+  state.student.name = a.name || 'Studente';
+  state.student.anno = a.anno || '';
+  state.student.stileStudio = a.style || '';
+  state.student.puntiDeboli = a.weakness || [];
+  state.student.goal = a.goal || '';
+  const hMap = tr().hoursMap || {'1-2 ore':1.5,'3-4 ore':3.5,'5-6 ore':5.5,'Più di 6 ore':7};
+  state.student.orePossibili = hMap[a.hours] || 2;
+  showScreen('screen-app');
+  _applyApp();
+  renderAll();
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+// Apply default language on load
+if(typeof _applyWelcome==='function') _applyWelcome();
+
+// ─── SCREENS & TABS ───────────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function switchTab(tab) { switchTabNav(tab, null); }
+
+function switchTabNav(tab, clickedBtn) {
+  // Update tab content
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  // Update bottom nav buttons
+  document.querySelectorAll('.bnav-btn').forEach(t=>t.classList.remove('active'));
+  var mobileBtn = document.getElementById('nav-'+tab);
+  if(mobileBtn) mobileBtn.classList.add('active');
+  // Update desktop nav buttons
+  document.querySelectorAll('.desktop-nav .nav-tab').forEach(t=>t.classList.remove('active'));
+  var desktopBtn = document.getElementById('dnav-'+tab);
+  if(desktopBtn) desktopBtn.classList.add('active');
+  // Render
+  if(tab==='dashboard') renderCalendar();
+  if(tab==='esami') renderEsami();
+  if(tab==='piano') renderPianoSelector();
+  if(tab==='quiz') renderQuizHome();
+  if(tab==='profilo') renderProfile();
+}
+
+
+function showInfo(id) {
+  var el = document.getElementById('info-'+id);
+  if (!el) return;
+  var L = tr();
+  var map = {cal: L.infoCalendar, esami: L.infoEsami, piano: L.infoPiano, quiz: L.infoQuiz};
+  if (map[id]) el.textContent = map[id];
+  el.classList.toggle('visible');
+}
+
+function renderAll() {
+  renderCalendar();
+  renderEsami();
+  renderPianoSelector();
+  renderQuizHome();
+  renderProfile();
+}
+
+// ─── ESAMI CRUD ───────────────────────────────────────────────────────────────
+const COLORS = ['#e8c547','#ff6b6b','#6bcbff','#6bcf7f','#ff9f7f','#c47bff','#ffb347'];
+
+function openAddExam() {
+  _applyApp();
+  document.getElementById('exam-name').value='';
+  document.getElementById('exam-date').value='';
+  document.getElementById('exam-prof').value='';
+  document.getElementById('temi-container').innerHTML='';
+  pendingPdfs = [];
+  document.getElementById('pdf-files-list').innerHTML='';
+  addTema(); addTema(); addTema();
+  document.getElementById('modal-exam').classList.add('open');
+}
+
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function addTema() {
+  const c = document.getElementById('temi-container');
+  const row = document.createElement('div');
+  row.className='tema-row';
+  row.innerHTML='<input class="tema-input" placeholder="'+tr().topicPh+'"><button class="btn-icon btn-remove" onclick="this.parentElement.remove()">✕</button>';
+  c.appendChild(row);
+}
+
+function saveExam() {
+  const name = document.getElementById('exam-name').value.trim();
+  const date = document.getElementById('exam-date').value;
+  if(!name||!date){ alert(tr().alertSubjectDate); return; }
+  const temi = [...document.querySelectorAll('.tema-input')].map(i=>i.value.trim()).filter(Boolean);
+  if(temi.length===0){ alert(tr().alertTopics); return; }
+  const esame = {
+    id: Date.now(), name, date,
+    prof: document.getElementById('exam-prof').value.trim(),
+    temi,
+    pdfs: pendingPdfs.map(p=>({ name:p.name, size:p.size, base64:p.base64 })),
+    color: COLORS[state.esami.length % COLORS.length]
+  };
+  state.esami.push(esame);
+  pendingPdfs = [];
+  document.getElementById('pdf-files-list').innerHTML='';
+  closeModal('modal-exam');
+  renderAll();
+}
+
+function deleteExam(id) {
+  if(!confirm('Sei sicuro di voler eliminare questo esame?')) return;
+  state.esami = state.esami.filter(e=>e.id!==id);
+  renderAll();
+}
+
+// ─── CALENDAR ────────────────────────────────────────────────────────────────
+function calNav(dir) {
+  state.calMonth += dir;
+  if(state.calMonth>11){ state.calMonth=0; state.calYear++; }
+  if(state.calMonth<0){ state.calMonth=11; state.calYear--; }
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const months = tr().months;
+  const wdays = tr().weekdays;
+  if(wdays) wdays.forEach((d,i)=>{ const el=document.getElementById('wh'+i); if(el) el.textContent=d; });
+  document.getElementById('cal-month-label').textContent = months[state.calMonth]+' '+state.calYear;
+  const today = new Date(); today.setHours(0,0,0,0);
+  document.getElementById('cal-subtitle').textContent = tr().examsPlanned(state.esami.length);
+
+  const firstDay = new Date(state.calYear, state.calMonth, 1);
+  const lastDay = new Date(state.calYear, state.calMonth+1, 0);
+  let startDow = firstDay.getDay(); // 0=dom
+  startDow = startDow===0?6:startDow-1; // monday first
+
+  // Build events map
+  const events = {};
+  const addEvent = (dateStr, ev) => { if(!events[dateStr]) events[dateStr]=[]; events[dateStr].push(ev); };
+
+  state.esami.forEach(e => {
+    addEvent(e.date, {type:'exam', label:'📝 '+e.name, color:e.color});
+    const plan = generateStudyPlan(e);
+    plan.forEach(d => addEvent(d.date, {type:d.type, label:d.label}));
+  });
+
+  let html = '';
+  // Previous month padding
+  const prevLast = new Date(state.calYear, state.calMonth, 0).getDate();
+  for(let i=startDow-1;i>=0;i--){
+    const d = prevLast-i;
+    html += `<div class="cal-day other-month"><div class="day-num">${d}</div></div>`;
+  }
+
+  for(let d=1; d<=lastDay.getDate(); d++){
+    const dateStr = `${state.calYear}-${String(state.calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dt = new Date(state.calYear, state.calMonth, d);
+    const isToday = dt.getTime()===today.getTime();
+    const dayEvents = events[dateStr]||[];
+    const hasExam = dayEvents.some(e=>e.type==='exam');
+    const hasStudy = dayEvents.some(e=>e.type==='study');
+    const cls = ['cal-day', isToday?'today':'', hasExam?'has-exam':hasStudy?'has-study':''].filter(Boolean).join(' ');
+    const evHtml = dayEvents.slice(0,3).map(e=>`<div class="day-event event-${e.type}">${e.label}</div>`).join('');
+    const more = dayEvents.length>3 ? `<div style="font-size:0.6rem;color:var(--text-muted)">+${dayEvents.length-3} altro</div>`:'';
+    html += `<div class="${cls}" onclick="showDayModal('${dateStr}')" data-date="${dateStr}"><div class="day-num">${d}</div>${evHtml}${more}</div>`;
+  }
+
+  // Next month padding
+  const total = startDow + lastDay.getDate();
+  const remaining = total%7===0?0:7-(total%7);
+  for(let d=1;d<=remaining;d++) html+=`<div class="cal-day other-month"><div class="day-num">${d}</div></div>`;
+
+  document.getElementById('cal-grid').innerHTML = html;
+}
+
+function showDayModal(dateStr) {
+  const events = getAllEvents();
+  const dayEvs = events[dateStr]||[];
+  const d = new Date(dateStr+'T12:00:00');
+  const months = tr().monthsShort;
+  document.getElementById('modal-day-title').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  if(dayEvs.length===0){
+    document.getElementById('modal-day-content').innerHTML='<p style="color:var(--text-muted)">'+tr().noEvents+'</p>';
+  } else {
+    document.getElementById('modal-day-content').innerHTML = dayEvs.map(e=>`<div style="padding:12px;background:var(--surface2);border-radius:10px;margin-bottom:8px;"><div style="font-weight:600;">${e.label}</div><div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">${e.detail||''}</div></div>`).join('');
+  }
+  document.getElementById('modal-day').classList.add('open');
+}
+
+function getAllEvents() {
+  const events = {};
+  const addEvent = (dateStr, ev) => { if(!events[dateStr]) events[dateStr]=[]; events[dateStr].push(ev); };
+  state.esami.forEach(e => {
+    addEvent(e.date, {type:'exam', label:'📝 '+e.name, detail: tr().examDayMsg});
+    const plan = generateStudyPlan(e);
+    plan.forEach(d => addEvent(d.date, {type:d.type, label:d.label, detail:d.detail||''}));
+  });
+  return events;
+}
+
+// ─── STUDY PLAN GENERATION ───────────────────────────────────────────────────
+function generateStudyPlan(esame) {
+  const plan = [];
+  const examDate = new Date(esame.date+'T12:00:00');
+  const today = new Date(); today.setHours(0,0,0,0);
+  const daysLeft = Math.floor((examDate-today)/(1000*60*60*24));
+  if(daysLeft<=0) return plan;
+  const temi = esame.temi;
+  if(temi.length===0) return plan;
+
+  // Distribute topics evenly, leave last 3 days for review
+  const studyDays = Math.max(1, daysLeft-3);
+  const daysPerTema = Math.max(1, Math.floor(studyDays/temi.length));
+  let currentDay = 0;
+
+  temi.forEach((tema, ti) => {
+    for(let d=0; d<daysPerTema && currentDay<studyDays; d++,currentDay++) {
+      const dt = new Date(today.getTime() + currentDay*86400000);
+      const dateStr = dt.toISOString().split('T')[0];
+      plan.push({
+        date: dateStr,
+        type: 'study',
+        label: '📖 '+esame.name.substring(0,12),
+        detail: tr().studyTag+': '+tema,
+        tema, temaIdx: ti,
+        esameId: esame.id,
+        dayType: d===0?'intro':d===daysPerTema-1?'quiz':'study'
+      });
+    }
+  });
+
+  // Review days
+  for(let r=0; r<3 && currentDay<daysLeft; r++,currentDay++) {
+    const dt = new Date(today.getTime() + currentDay*86400000);
+    const dateStr = dt.toISOString().split('T')[0];
+    plan.push({ date:dateStr, type:'review', label:tr().reviewTag+' '+esame.name.substring(0,10), detail:tr().reviewDesc, esameId:esame.id });
+  }
+  return plan;
+}
+
+// ─── ESAMI LIST ───────────────────────────────────────────────────────────────
+function renderEsami() {
+  const container = document.getElementById('esami-list');
+  if(state.esami.length===0){
+    const L=tr(); container.innerHTML=`<div class="empty-state">
+      <div style="font-size:5rem;margin-bottom:16px;filter:drop-shadow(0 0 20px rgba(232,197,71,0.3));">📚</div>
+      <div class="empty-title">${L.noExams}</div>
+      <div class="empty-sub">${L.noExamsSub}</div>
+      <button class="btn btn-primary" onclick="openAddExam()" style="margin-top:8px;">
+        <span style="font-size:1.1rem;">+</span> ${L.newExam.replace('+ ','')}
+      </button>
+    </div>`;
+    return;
+  }
+  const today = new Date(); today.setHours(0,0,0,0);
+  container.innerHTML = state.esami.sort((a,b)=>a.date.localeCompare(b.date)).map(e=>{
+    const examDate = new Date(e.date+'T12:00:00');
+    const daysLeft = Math.floor((examDate-today)/(1000*60*60*24));
+    const urgent = daysLeft<14;
+    return `<div class="esame-card">
+      <div class="esame-color" style="background:${e.color}"></div>
+      <div class="esame-info">
+        <div class="esame-name">${e.name}</div>
+        <div class="esame-date">📅 ${formatDate(e.date)} ${e.prof?'· '+e.prof:''}</div>
+        <div class="esame-temi">${e.temi.map(t=>'<span class="tema-chip">'+t+'</span>').join('')}${(e.pdfs||[]).length>0?('<span class="tema-chip" style="background:rgba(107,207,127,0.15);color:var(--success);">📄 '+e.pdfs.length+' PDF</span>'):''}</div>
+      </div>
+      <div class="days-left">
+        <div class="days-num ${urgent?'urgent':''}">${daysLeft>=0?daysLeft:'✓'}</div>
+        <div class="days-label">${daysLeft>=0?tr().daysLeft:tr().completed}</div>
+      </div>
+      <div class="esame-actions">
+        <button class="btn btn-sm" style="background:rgba(107,203,255,0.15);color:var(--accent3);border:none;cursor:pointer;" onclick="switchTab('piano');document.getElementById('piano-selector').value='${e.id}';renderPiano()">${tr().pianoBtnLabel}</button>
+        <button class="btn btn-sm btn-danger btn-sm" onclick="deleteExam(${e.id})">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── PIANO ───────────────────────────────────────────────────────────────────
+function renderPianoSelector() {
+  const sel = document.getElementById('piano-selector');
+  const current = sel.value;
+  sel.innerHTML = '<option value="" id="piano-selector-placeholder">' + tr().selectExam + '</option>' + state.esami.map(e=>'<option value="' + e.id + '">' + e.name + ' — ' + formatDate(e.date) + '</option>').join('');
+  if(current) sel.value=current;
+  renderPiano();
+}
+
+function makeQuizBtn(p, id) {
+  if (p.dayType !== 'quiz') return '';
+  var tema = encodeURIComponent(p.tema || '');
+  return '<button style="margin-left:8px;" class="tag tag-quiz" data-id="' + id + '" data-tema="' + tema + '" onclick="openDiffPicker(this)">' + (tr().quizBtn || '🤖 Quiz AI') + '</button>';
+}
+function openDiffPicker(btn) {
+  var id = parseInt(btn.getAttribute('data-id'));
+  var tema = decodeURIComponent(btn.getAttribute('data-tema'));
+  openDifficultyPicker('tema', id, tema);
+}
+
+function renderPiano() {
+  const id = parseInt(document.getElementById('piano-selector').value);
+  const esame = state.esami.find(e=>e.id===id);
+  const container = document.getElementById('study-timeline');
+  const countdown = document.getElementById('piano-countdown');
+  if(!esame){ container.innerHTML='<div class="empty-state"><div class="empty-icon">📋</div><div class="empty-title">'+tr().emptyPianoTitle+'</div><div class="empty-sub">'+tr().emptyPianoSub+'</div></div>'; countdown.textContent=''; return; }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const examDate = new Date(esame.date+'T12:00:00');
+  const daysLeft = Math.floor((examDate-today)/(1000*60*60*24));
+  countdown.textContent = daysLeft>0?tr().daysToExam(daysLeft):daysLeft===0?tr().examToday:tr().examDone;
+  const plan = generateStudyPlan(esame);
+  if(plan.length===0){ container.innerHTML='<p style="color:var(--text-muted)">'+tr().noPlanMsg+'</p>'; return; }
+
+  const months=tr().monthsShort;
+  container.innerHTML = plan.map((p,i)=>{
+    const d = new Date(p.date+'T12:00:00');
+    const key = id+'_'+i;
+    const done = state.completed[key];
+    let tags='', desc='';
+    if(p.type==='study'){
+      if(p.dayType==='intro'){ tags=`<span class="tag tag-study">${tr().introTag}</span>`; desc=tr().introDesc(p.tema); }
+      else if(p.dayType==='quiz'){ tags=`<span class="tag tag-quiz">${tr().quizTag}</span>`; desc=tr().quizDesc(p.tema); }
+      else { tags=`<span class="tag tag-study">${tr().studyTag}</span>`; desc=tr().studyDesc(p.tema); }
+    } else {
+      tags=`<span class="tag tag-review">${tr().reviewTag}</span>`; desc=tr().reviewDesc;
+    }
+    return `<div class="study-day ${done?'completed':''}">
+      <div class="study-date"><div class="day">${d.getDate()}</div><div class="month">${months[d.getMonth()]}</div></div>
+      <div class="study-content">
+        <div class="study-tema">${p.type==='study'?p.tema:tr().revisoGeneral}</div>
+        <div class="study-desc">${desc}</div>
+        <div class="study-tags">${tags}${makeQuizBtn(p,id)}</div>
+      </div>
+      <div class="study-actions">
+        <button class="check-btn ${done?'done':''}" onclick="toggleDone('${key}',this)">${done?'✓':'○'}</button>
+      </div>
+    </div>`;
+  }).join('') + `<div class="study-day" style="border-color:var(--accent2);background:rgba(255,107,107,0.05);">
+    <div class="study-date"><div class="day" style="color:var(--accent2);">${new Date(esame.date+'T12:00:00').getDate()}</div><div class="month">${months[new Date(esame.date+'T12:00:00').getMonth()]}</div></div>
+    <div class="study-content"><div class="study-tema">${tr().examDayPlan(esame.name)}</div><div class="study-desc">${tr().examDayPlanDesc}</div><div class="study-tags"><span class="tag tag-exam">Esame</span>${esame.prof?('<span class="tag" style="background:rgba(255,255,255,0.05);">👩‍🏫 '+esame.prof+'</span>'):''}</div></div></div>`;
+}
+
+function toggleDone(key, btn) {
+  state.completed[key] = !state.completed[key];
+  btn.classList.toggle('done');
+  btn.textContent = state.completed[key]?'✓':'○';
+  btn.closest('.study-day').classList.toggle('completed');
+}
+
+// ─── QUIZ ─────────────────────────────────────────────────────────────────────
+function scoreColor(s){ return s>=8?'var(--success)':s>=6?'var(--accent)':s>=4?'var(--warning)':'var(--accent2)'; }
+
+// ─── PDF HANDLING ─────────────────────────────────────────────────────────────
+let pendingPdfs = []; // { name, size, base64 }
+
+function handleDragOver(e) { e.preventDefault(); document.getElementById('pdf-drop-zone').classList.add('drag-over'); }
+function handleDragLeave(e) { document.getElementById('pdf-drop-zone').classList.remove('drag-over'); }
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('pdf-drop-zone').classList.remove('drag-over');
+  const files = [...e.dataTransfer.files].filter(f=>f.type==='application/pdf'||f.name.endsWith('.pdf'));
+  processPdfFiles(files);
+}
+function handlePdfFiles(e) { processPdfFiles([...e.target.files]); }
+
+function processPdfFiles(files) {
+  files.forEach(file => {
+    if(pendingPdfs.find(p=>p.name===file.name)) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const base64 = e.target.result.split(',')[1];
+      pendingPdfs.push({ name: file.name, size: file.size, base64 });
+      renderPdfList();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function removePdf(name) {
+  pendingPdfs = pendingPdfs.filter(p=>p.name!==name);
+  renderPdfList();
+}
+
+function renderPdfList() {
+  const container = document.getElementById('pdf-files-list');
+  if(pendingPdfs.length===0){ container.innerHTML=''; return; }
+  container.innerHTML = pendingPdfs.map(p=>`
+    <div class="pdf-file-item">
+      <div class="pdf-file-icon">📄</div>
+      <div class="pdf-file-info">
+        <div class="pdf-file-name">${p.name}</div>
+        <div class="pdf-file-size">${(p.size/1024).toFixed(0)} KB</div>
+      </div>
+      <button class="pdf-file-remove" onclick="removePdf('${p.name.replace(/'/g,"\\'")}')">✕</button>
+    </div>`).join('') + `<div class="pdf-status ok">✓ ${pendingPdfs.length} file caricato${pendingPdfs.length>1?'i':''}. L'AI userà questi contenuti per i quiz.</div>`;
+}
+
+// ─── AI QUIZ GENERATION ──────────────────────────────────────────────────────
+const DIFFICULTY_PROMPTS = {
+  facile: `LIVELLO: FACILE
+- Domande di riconoscimento e definizione diretta
+- Testa la conoscenza dei concetti principali, terminologia base, fatti fondamentali
+- Le opzioni errate devono essere chiaramente distinguibili da chi ha letto il materiale
+- Esempio di domanda facile: "Cosa si intende per X?" oppure "Quale delle seguenti è una caratteristica di X?"
+- 100% delle domande a difficoltà bassa`,
+
+  media: `LIVELLO: MEDIO
+- Domande di comprensione e applicazione semplice
+- Testa la capacità di applicare i concetti, non solo riconoscerli
+- Le opzioni errate devono essere plausibili ma chiaramente errate per chi ha studiato bene
+- Mix di domande: 30% definizioni, 50% comprensione/applicazione, 20% analisi semplice
+- Livello standard per l'esame universitario`,
+
+  difficile: `LIVELLO: DIFFICILE
+- Domande di analisi, ragionamento e casi complessi
+- Testa la capacità di ragionare con i concetti, non solo applicarli meccanicamente
+- Le opzioni errate devono essere molto plausibili, con distinzioni sottili
+- Include domande su: eccezioni, casi limite, confronti tra concetti, cause ed effetti
+- Mix: 10% definizioni avanzate, 40% applicazione complessa, 50% analisi/ragionamento
+- Richiede studio approfondito del materiale`,
+
+  pro: `LIVELLO: PRO (livello esame reale)
+- Domande che un professore esigente farebbe all'esame orale/scritto
+- Testa la padronanza completa: dettagli tecnici precisi, eccezioni alle regole, connessioni tra argomenti diversi, sintesi critica
+- Le opzioni errate devono essere estremamente plausibili, con differenze sottilissime
+- Include: domande trabocchetto, casi limite, integrazione di più concetti, formulazioni ambigue
+- 100% domande a difficoltà massima — nessuna pietà
+- Solo chi conosce davvero la materia risponderà correttamente`,
+};
+
+async function generateAIQuestions(tema, esame, count=15, difficulty='media') {
+  const examPdfs = esame.pdfs || [];
+  const diffPrompt = DIFFICULTY_PROMPTS[difficulty] || DIFFICULTY_PROMPTS.media;
+  const pdfContext = examPdfs.length > 0
+    ? `\nHai accesso ai materiali di studio in PDF per l'esame "${esame.name}". Basa le domande principalmente sul contenuto di questi documenti per renderle pertinenti al programma reale dello studente.`
+    : '';
+
+  const prompt = `Sei un professore universitario esperto in "${esame.name}".
+Genera esattamente ${count} domande a risposta multipla (A/B/C/D) sull'argomento: "${tema}".${pdfContext}
+
+${diffPrompt}
+
+REQUISITI TECNICI:
+- Ogni domanda ha ESATTAMENTE 4 opzioni (A, B, C, D)
+- UNA SOLA risposta è corretta
+- Le domande devono essere varie e coprire diversi aspetti di "${tema}"
+- Ogni domanda deve includere una breve spiegazione della risposta corretta (max 2 righe)
+- NON ripetere la stessa domanda in forme diverse
+
+Rispondi SOLO con JSON valido, senza testo prima o dopo:
+[
+  {
+    "text": "Testo della domanda?",
+    "options": ["Opzione A", "Opzione B", "Opzione C", "Opzione D"],
+    "correct": 0,
+    "explanation": "Spiegazione concisa della risposta corretta"
+  }
+]
+Dove "correct" è l'indice 0-3 della risposta corretta.`;
+
+  const messages = [];
+  if(examPdfs.length > 0) {
+    const contentBlocks = [];
+    examPdfs.slice(0,3).forEach(pdf => {
+      contentBlocks.push({ type:'document', source:{ type:'base64', media_type:'application/pdf', data: pdf.base64 } });
+    });
+    contentBlocks.push({ type:'text', text: prompt });
+    messages.push({ role:'user', content: contentBlocks });
+  } else {
+    messages.push({ role:'user', content: prompt });
+  }
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:4000, messages })
+  });
+
+  if(!response.ok) throw new Error('API error '+response.status);
+  const data = await response.json();
+  const text = data.content.map(b=>b.text||'').join('').trim();
+  const jsonMatch = text.match(/\[[\s\S]*\]/);
+  if(!jsonMatch) throw new Error('JSON non trovato nella risposta');
+  const questions = JSON.parse(jsonMatch[0]);
+
+  return questions.slice(0,count).map(q => ({
+    text: q.text,
+    options: q.options,
+    correct: typeof q.correct === 'number' ? q.correct : 0,
+    explanation: q.explanation || '',
+    tema,
+    difficulty,
+    aiGenerated: true
+  }));
+}
+
+// ─── QUIZ HOME ────────────────────────────────────────────────────────────────
+function renderQuizHome() {
+  const container = document.getElementById('quiz-selector');
+  if(state.esami.length===0){
+    const L2=tr(); container.innerHTML='<div class="empty-state" style="grid-column:1/-1;"><div class="empty-icon">🧠</div><div class="empty-title">'+L2.noExamsQuiz+'</div><div class="empty-sub">'+L2.noExamsQuizSub+'</div></div>';
+    return;
+  }
+
+  // Show AI info banner
+  const Lq=tr(); let html = `<div style="grid-column:1/-1;background:linear-gradient(135deg,rgba(107,203,255,0.1),rgba(232,197,71,0.05));border:1px solid rgba(107,203,255,0.25);border-radius:var(--radius);padding:16px 20px;margin-bottom:8px;display:flex;align-items:center;gap:12px;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:600;margin-bottom:2px;">${Lq.aiBanner}</div><div style="font-size:0.82rem;color:var(--text-muted);">${Lq.aiBannerSub}</div></div></div>`;
+
+  state.esami.forEach(e=>{
+    e.temi.forEach(tema=>{
+      const key = `q_${e.id}_${tema}`;
+      const allScores = state.student.quizScores.filter(s=>s.key.startsWith(`q_${e.id}_${tema}`));
+      const lastScore = allScores.slice(-1)[0];
+      const hasPdfs = (e.pdfs||[]).length>0;
+      html+=`<div class="quiz-card ${hasPdfs?'has-ai':''}" onclick="openDifficultyPicker('tema',${e.id},'${tema.replace(/'/g,"\\'")}'  )">
+        <div class="quiz-card-icon">📝</div>
+        <div class="quiz-card-title">${tema}</div>
+        <div class="quiz-card-sub">${e.name}</div>
+        <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;">
+          <span class="quiz-card-badge" style="background:rgba(107,203,255,0.15);color:var(--accent3);">🤖 AI · 15 domande</span>
+          ${hasPdfs?'<span class="quiz-card-badge" style="background:rgba(107,207,127,0.15);color:var(--success);">📄 PDF</span>':''}
+        </div>
+        ${lastScore?('<div style="font-size:0.75rem;color:var(--text-muted);margin-top:8px;">'+Lq.lastScore+' <strong style="color:'+scoreColor(lastScore.score)+'">'+lastScore.score.toFixed(2)+'/10</strong></div>'):''}
+      </div>`;
+    });
+    const allFinal = state.student.quizScores.filter(s=>s.key.startsWith(`final_${e.id}`));
+    const lastFinal = allFinal.slice(-1)[0];
+    const hasPdfs = (e.pdfs||[]).length>0;
+    html+=`<div class="quiz-card" onclick="openDifficultyPicker('final',${e.id},null)" style="border-color:rgba(232,197,71,0.3);">
+      <div class="quiz-card-icon">🏆</div>
+      <div class="quiz-card-title">${Lq.quizFinalTitle}</div>
+      <div class="quiz-card-sub">${e.name}</div>
+      <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;">
+        <span class="quiz-card-badge" style="background:rgba(232,197,71,0.15);color:var(--accent);">🤖 AI · 50 domande</span>
+        ${hasPdfs?'<span class="quiz-card-badge" style="background:rgba(107,207,127,0.15);color:var(--success);">📄 PDF</span>':''}
+      </div>
+      ${lastFinal?('<div style="font-size:0.75rem;color:var(--text-muted);margin-top:8px;">'+Lq.lastScore+' <strong style="color:'+scoreColor(lastFinal.score)+'">'+lastFinal.score.toFixed(2)+'/10</strong></div>'):''}
+    </div>`;
+  });
+  container.innerHTML=html;
+}
+
+// ─── DIFFICULTY PICKER ───────────────────────────────────────────────────────
+const DIFFICULTY_INFO = {
+  facile:    { label:'🌱 Facile',   color:'#6bcf7f', desc:'Domande di riconoscimento e definizione. Ideale per un primo ripasso o per consolidare le basi. Le opzioni errate sono chiaramente distinguibili.' },
+  media:     { label:'📖 Media',    color:'#e8c547', desc:'Comprensione e applicazione semplice. Il livello standard per prepararsi all\'esame. Richiede di aver studiato bene l\'argomento.' },
+  difficile: { label:'🔥 Difficile',color:'#ffb347', desc:'Analisi, ragionamento e casi complessi. Le opzioni errate sono molto plausibili. Consigliato dopo aver superato il livello medio.' },
+  pro:       { label:'⚡ Pro',      color:'#ff6b6b', desc:'Livello esame reale: dettagli tecnici, eccezioni, casi limite, connessioni tra argomenti. Solo per chi è davvero pronto. Niente pietà!' },
+};
+
+let pendingQuizLaunch = null; // { type: 'tema'|'final', esameId, tema }
+
+function openDifficultyPicker(type, esameId, tema) {
+  pendingQuizLaunch = { type, esameId, tema };
+  const title = type==='final' ? `Simulazione Finale` : `Quiz: ${tema}`;
+  const esame = state.esami.find(e=>e.id===esameId);
+  document.getElementById('diff-modal-title').textContent = title;
+  document.getElementById('diff-modal-sub').textContent = esame ? `Materia: ${esame.name}` : 'Scegli il livello di difficoltà';
+  // Highlight current difficulty
+  document.querySelectorAll('.diff-btn').forEach(b=>{
+    b.classList.toggle('selected', b.dataset.d === state.difficulty);
+  });
+  updateDiffInfo(state.difficulty);
+  document.getElementById('modal-difficulty').classList.add('open');
+}
+
+function selectDifficulty(level, el) {
+  state.difficulty = level;
+  document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  updateDiffInfo(level);
+}
+
+function updateDiffInfo(level) {
+  const info = DIFFICULTY_INFO[level];
+  document.getElementById('diff-level-info').innerHTML =
+    `<strong style="color:${info.color}">${info.label}</strong> — ${info.desc}`;
+}
+
+async function launchQuizWithDifficulty() {
+  closeModal('modal-difficulty');
+  const { type, esameId, tema } = pendingQuizLaunch;
+  if(type === 'tema') await startAIQuiz(esameId, tema);
+  else await startAIFinalQuiz(esameId);
+}
+
+// ─── AI QUIZ LAUNCHER ─────────────────────────────────────────────────────────
+async function startAIQuiz(esameId, tema) {
+  const esame = state.esami.find(e=>e.id===esameId);
+  if(!esame) return;
+  showAILoading(`${tr().generating} "${tema}" —  ${DIFFICULTY_INFO[state.difficulty].label}...`, 1, 1);
+  try {
+    const questions = await generateAIQuestions(tema, esame, 15, state.difficulty);
+    hideAILoading();
+    beginQuiz(questions, `Quiz: ${tema}`, `q_${esameId}_${tema}_${state.difficulty}`);
+    switchTabDirect('quiz');
+  } catch(err) {
+    hideAILoading();
+    showAIError(err.message);
+  }
+}
+
+async function startAIFinalQuiz(esameId) {
+  const esame = state.esami.find(e=>e.id===esameId);
+  if(!esame) return;
+  const temi = esame.temi;
+  const perTema = Math.ceil(50/temi.length);
+  let allQuestions = [];
+  showAILoading(`${tr().generating} —  ${DIFFICULTY_INFO[state.difficulty].label}...`, 0, temi.length);
+  try {
+    for(let i=0; i<temi.length; i++) {
+      updateAILoadingProgress(i, temi.length, `Genero domande su "${temi[i]}"...`);
+      const qs = await generateAIQuestions(temi[i], esame, perTema, state.difficulty);
+      allQuestions = allQuestions.concat(qs);
+    }
+    allQuestions = shuffle(allQuestions).slice(0,50);
+    hideAILoading();
+    beginQuiz(allQuestions, `Simulazione Finale: ${esame.name}`, `final_${esameId}_${state.difficulty}`);
+    switchTabDirect('quiz');
+  } catch(err) {
+    hideAILoading();
+    showAIError(err.message);
+  }
+}
+
+// ─── AI LOADING UI ────────────────────────────────────────────────────────────
+function showAILoading(msg, current, total) {
+  // Create overlay
+  let overlay = document.getElementById('ai-loading-overlay');
+  if(!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'ai-loading-overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(6px);z-index:2000;display:flex;align-items:center;justify-content:center;';
+    document.body.appendChild(overlay);
+  }
+  overlay.innerHTML = `<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;max-width:420px;width:90%;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:16px;">🤖</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;">${tr().aiWorking}</div>
+    <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:24px;" id="ai-load-msg">${msg}</div>
+    <div class="ai-progress-wrap">
+      <div class="ai-progress-bar"><div class="ai-progress-fill" id="ai-load-bar" style="width:${total>0?(current/total*100):20}%"></div></div>
+      <div class="ai-progress-label" id="ai-load-label">${total>1?tr().topicOf(current,total):tr().generating}</div>
+    </div>
+    <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:0.8rem;color:var(--text-muted);">
+      <div class="ai-spinner"></div> ${tr().aiWorking2}
+    </div>
+  </div>`;
+  overlay.style.display='flex';
+}
+
+function updateAILoadingProgress(current, total, msg) {
+  const bar = document.getElementById('ai-load-bar');
+  const label = document.getElementById('ai-load-label');
+  const msgEl = document.getElementById('ai-load-msg');
+  if(bar) bar.style.width = `${Math.round((current/total)*100)}%`;
+  if(label) label.textContent = tr().topicOf(current+1,total);
+  if(msgEl) msgEl.textContent = msg;
+}
+
+function hideAILoading() {
+  const overlay = document.getElementById('ai-loading-overlay');
+  if(overlay) overlay.style.display='none';
+}
+
+function showAIError(msg) {
+  const overlay = document.getElementById('ai-loading-overlay');
+  if(!overlay) return;
+  overlay.style.display='flex';
+  overlay.innerHTML=`<div style="background:var(--surface);border:1px solid var(--accent2);border-radius:var(--radius);padding:40px;max-width:420px;width:90%;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:16px;">⚠️</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;">${tr().aiErrTitle}</div>
+    <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px;">${msg}</div>
+    <div style="font-size:0.8rem;background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:20px;color:var(--text-muted);text-align:left;">${tr().aiErrCauses}<br>${tr().aiErrList}</div>
+    <button class="btn btn-secondary btn-sm" onclick="hideAILoading()">${tr().close}</button>
+  </div>`;
+}
+
+function shuffle(arr) { return [...arr].sort(()=>Math.random()-0.5); }
+
+function switchTabDirect(tab) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(b=>{ if(b.id==='nav-'+tab) b.classList.add('active'); });
+}
+
+function beginQuiz(questions, title, key) {
+  state.currentQuiz = { questions, title, key };
+  state.quizState = { current:0, correct:0, wrong:0, skip:0, answers:[], score:0 };
+  document.getElementById('quiz-home').style.display='none';
+  document.getElementById('quiz-active-area').style.display='block';
+  document.getElementById('quiz-results-area').style.display='none';
+  document.getElementById('quiz-title-label').textContent=title;
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const { questions } = state.currentQuiz;
+  const { current, correct, wrong, skip, score } = state.quizState;
+  const total = questions.length;
+  const Lrq=tr();
+  const qbtn=document.getElementById('quiz-back-btn'); if(qbtn) qbtn.textContent=Lrq.backBtn;
+  const lc=document.getElementById('lbl-correct'); if(lc) lc.textContent=Lrq.correct;
+  const lw=document.getElementById('lbl-wrong'); if(lw) lw.textContent=Lrq.wrong;
+  const ls=document.getElementById('lbl-skip'); if(ls) ls.textContent=Lrq.skipped;
+  const lsc=document.getElementById('lbl-score'); if(lsc) lsc.textContent=Lrq.score;
+  document.getElementById('quiz-counter').textContent = Lrq.questionOf(current+1, total);
+  document.getElementById('quiz-progress-fill').style.width = `${(current/total)*100}%`;
+  document.getElementById('live-correct').textContent=correct;
+  document.getElementById('live-wrong').textContent=wrong;
+  document.getElementById('live-skip').textContent=skip;
+  document.getElementById('live-score').textContent=score.toFixed(2);
+
+  const q = questions[current];
+  const letters=['A','B','C','D'];
+  const optHtml = q.options.map((o,i)=>`<button class="answer-btn" onclick="answerQuiz(${i})" data-idx="${i}">
+    <span class="option-letter">${letters[i]}</span><span>${o}</span></button>`).join('');
+
+  const diffColors = {facile:'var(--success)',media:'var(--accent)',difficile:'var(--warning)',pro:'var(--accent2)'};
+  const diffLabels = {facile:'🌱 Facile',media:'📖 Media',difficile:'🔥 Difficile',pro:'⚡ Pro'};
+  const diffCol = diffColors[q.difficulty||'media'];
+  const diffLab = diffLabels[q.difficulty||'media'];
+
+  document.getElementById('quiz-question-area').innerHTML=`
+    <div class="q-num">${Lrq.questionOf(current+1,total)}${q.tema?' · '+q.tema:''} <span style="font-size:0.7rem;background:rgba(255,255,255,0.06);color:${diffCol};padding:2px 8px;border-radius:50px;margin-left:4px;border:1px solid ${diffCol}40">${diffLab}</span></div>
+    <div class="q-text">${q.text}</div>
+    <div class="answer-options" id="answer-options-wrap">${optHtml}</div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <button class="skip-btn" onclick="skipQuiz()">${Lrq.skipBtn}</button>
+      <span style="font-size:0.8rem;color:var(--text-muted)">${Lrq.skipRule}</span>
+    </div>
+    <div id="explanation-box" style="display:none;margin-top:12px;padding:12px 16px;background:rgba(107,207,127,0.08);border-left:3px solid var(--success);border-radius:0 8px 8px 0;font-size:0.88rem;color:var(--text-muted);line-height:1.6;"></div>`;;
+}
+
+function answerQuiz(chosen) {
+  const { questions } = state.currentQuiz;
+  const q = questions[state.quizState.current];
+  const correct = chosen === q.correct;
+  const btns = document.querySelectorAll('.answer-btn');
+  btns.forEach(b=>b.disabled=true);
+  btns[chosen].classList.add(correct?'correct':'wrong');
+  if(!correct) btns[q.correct].classList.add('reveal-correct');
+
+  state.quizState.answers.push({ chosen, correct: q.correct, answered: chosen });
+  if(correct){ state.quizState.correct++; state.quizState.score=Math.min(10, state.quizState.score+1); }
+  else { state.quizState.wrong++; state.quizState.score=Math.max(0, state.quizState.score-0.333); }
+
+  document.getElementById('live-correct').textContent=state.quizState.correct;
+  document.getElementById('live-wrong').textContent=state.quizState.wrong;
+  document.getElementById('live-score').textContent=state.quizState.score.toFixed(2);
+
+  // Show explanation if available
+  if(q.explanation) {
+    const box = document.getElementById('explanation-box');
+    if(box) { box.style.display='block'; box.innerHTML=`${tr().explanationLabel} ${q.explanation}`; }
+  }
+
+  setTimeout(()=>nextQuizQuestion(), q.explanation ? 2500 : 1200);
+}
+
+function skipQuiz() {
+  state.quizState.skip++;
+  state.quizState.answers.push({ chosen:null, correct:state.currentQuiz.questions[state.quizState.current].correct, answered:null });
+  document.getElementById('live-skip').textContent=state.quizState.skip;
+  nextQuizQuestion();
+}
+
+function nextQuizQuestion() {
+  state.quizState.current++;
+  if(state.quizState.current >= state.currentQuiz.questions.length) { showQuizResults(); return; }
+  renderQuizQuestion();
+}
+
+function showQuizResults() {
+  const { correct, wrong, skip, score } = state.quizState;
+  const total = state.currentQuiz.questions.length;
+  const finalScore = Math.round(score*10)/10;
+  const key = state.currentQuiz.key;
+  state.student.quizScores.push({ key, score:finalScore, date:new Date().toISOString(), total });
+
+  const Lr=tr(); const gs=Lr.grades; const grade=finalScore>=9?gs[0]:finalScore>=7?gs[1]:finalScore>=5?gs[2]:finalScore>=3?gs[3]:gs[4];
+  const feedback = finalScore>=7 ? Lr.feedbackGood(correct,total) : Lr.feedbackBad(wrong,skip);
+  const color = scoreColor(finalScore);
+
+  document.getElementById('quiz-active-area').style.display='none';
+  document.getElementById('quiz-results-area').style.display='block';
+  document.getElementById('quiz-results-area').innerHTML=`
+    <div class="results-card">
+      <div style="font-size:0.9rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;">${Lr.resultTitle}</div>
+      <div class="results-score-big" style="color:${color}">${finalScore.toFixed(1)}<span style="font-size:2rem;color:var(--text-muted)">/10</span></div>
+      <div class="results-grade">${grade}</div>
+      <div class="results-breakdown">
+        <div class="rb-item"><div class="rb-num" style="color:var(--success)">${correct}</div><div class="rb-label">${Lr.correct}<br><small>+${correct} pt</small></div></div>
+        <div class="rb-item"><div class="rb-num" style="color:var(--accent2)">${wrong}</div><div class="rb-label">${Lr.wrong}<br><small>-${(wrong*0.333).toFixed(1)} pt</small></div></div>
+        <div class="rb-item"><div class="rb-num" style="color:var(--text-muted)">${skip}</div><div class="rb-label">${Lr.skipped}<br><small>0 pt</small></div></div>
+      </div>
+      <div class="results-feedback">${feedback}</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="beginQuiz(state.currentQuiz.questions, state.currentQuiz.title, state.currentQuiz.key)">${Lr.retryBtn}</button>
+        <button class="btn btn-secondary" onclick="backToQuizHome()">${Lr.backAllQuiz}</button>
+      </div>
+    </div>`;
+}
+
+function backToQuizHome() {
+  document.getElementById('quiz-home').style.display='block';
+  document.getElementById('quiz-active-area').style.display='none';
+  document.getElementById('quiz-results-area').style.display='none';
+  renderQuizHome();
+}
+
+// ─── PROFILE ──────────────────────────────────────────────────────────────────
+function renderProfile() {
+  const s = state.student;
+  const totalQuizzes = s.quizScores.length;
+  const avgScore = totalQuizzes>0 ? (s.quizScores.reduce((a,b)=>a+b.score,0)/totalQuizzes).toFixed(1) : '—';
+  const completedDays = Object.values(state.completed).filter(Boolean).length;
+  const weaknesses = s.puntiDeboli.length>0 ? s.puntiDeboli : [tr().noWeakness];
+  const initial = s.name ? s.name[0].toUpperCase() : '?';
+
+  const Lp=tr();
+  document.getElementById('profile-content').innerHTML=`
+    <div>
+      <div class="profile-card">
+        <div class="profile-avatar">${initial}</div>
+        <div class="profile-name">${s.name}</div>
+        <div class="profile-sub">${s.anno}</div>
+        <div class="stat-row"><span class="stat-key">${Lp.studyStyle}</span><span class="stat-val">${s.stileStudio||'—'}</span></div>
+        <div class="stat-row"><span class="stat-key">${Lp.dailyHours}</span><span class="stat-val">${s.orePossibili}h</span></div>
+        <div class="stat-row"><span class="stat-key">${Lp.goal}</span><span class="stat-val">${s.goal||'—'}</span></div>
+        <div class="stat-row"><span class="stat-key">${Lp.plannedExams}</span><span class="stat-val">${state.esami.length}</span></div>
+        <div class="stat-row"><span class="stat-key">${Lp.completedSessions}</span><span class="stat-val">${completedDays}</span></div>
+        <div class="stat-row"><span class="stat-key">${Lp.completedQuizzes}</span><span class="stat-val">${totalQuizzes}</span></div>
+        <div class="stat-row"><span class="stat-key">${Lp.avgScore}</span><span class="stat-val" style="color:${scoreColor(parseFloat(avgScore))}">${avgScore}</span></div>
+      </div>
+      <div class="profile-card" style="margin-top:16px;">
+        <div style="font-weight:600;margin-bottom:16px;">${Lp.weaknesses}</div>
+        ${weaknesses.map(function(w){ return '<div class="weakness-item"><span class="weakness-label" style="font-size:0.85rem;">'+w+'</span></div>'; }).join('')}
+      </div>
+    </div>
+    <div>
+      <div class="profile-card">
+        <div style="font-weight:600;margin-bottom:16px;">${Lp.quizHistory}</div>
+        ${s.quizScores.length===0?Lp.noHistory:
+        s.quizScores.slice(-20).reverse().map(q=>{
+          const k = q.key.replace('q_','').replace('final_','🏆 ');
+          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:0.85rem;">${k}</span>
+            <span style="font-family:'DM Mono',monospace;font-weight:700;color:${scoreColor(q.score)}">${q.score.toFixed(1)}/10</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+}
+
+// ─── UTILS ───────────────────────────────────────────────────────────────────
+function formatDate(dateStr) {
+  const d = new Date(dateStr+'T12:00:00');
+  const months=tr().monthsShort;
+  return d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear();
+}
+
+// ─── PWA: SERVICE WORKER + INSTALL PROMPT ────────────────────────────────────
+let deferredInstallPrompt = null;
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for (var r of registrations) r.unregister();
+  });
+}
+
+// Cattura l'evento "beforeinstallprompt" per mostrare il bottone di installazione
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  showInstallBanner();
+});
+
+function showInstallBanner() {
+  if (document.getElementById('pwa-banner')) return;
+  const banner = document.createElement('div');
+  banner.id = 'pwa-banner';
+  banner.style.cssText = `
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--surface); border: 1px solid var(--accent);
+    border-radius: 50px; padding: 12px 20px;
+    display: flex; align-items: center; gap: 12px;
+    z-index: 9999; box-shadow: 0 8px 32px rgba(232,197,71,0.2);
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    animation: slideUp 0.4s ease; white-space: nowrap;
+  `;
+  var L=tr();
+  banner.innerHTML = '<span style="font-size:1.3rem;">📱</span> '+
+    '<span>'+(L.pwaInstallMsg||'Install')+' <strong>StudyFlow</strong></span>'+
+    '<button onclick="installPWA()" style="background:var(--accent);color:var(--bg);border:none;border-radius:50px;padding:6px 18px;font-weight:700;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:0.85rem;">'+(L.pwaInstallBtn||'Install')+'</button>'+
+    '<button onclick="document.getElementById(\'pwa-banner\').remove()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.1rem;padding:0 4px;">×</button>';
+  document.body.appendChild(banner);
+}
+
+async function installPWA() {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  const { outcome } = await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+  const banner = document.getElementById('pwa-banner');
+  if (banner) banner.remove();
+  if (outcome === 'accepted') {
+    showToast('🎉 '+tr().pwaInstalledMsg);
+  }
+}
+
+// Toast notification utility
+function showToast(msg, duration=3500) {
+  const t = document.createElement('div');
+  t.style.cssText = `
+    position: fixed; top: 24px; right: 24px; z-index: 9999;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 20px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease; max-width: 320px;
+  `;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), duration);
+}
+
+// iOS: mostra istruzioni manuali (Safari non supporta beforeinstallprompt)
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isInStandalone = window.matchMedia('(display-mode: standalone)').matches;
+if (isIOS && !isInStandalone) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (document.getElementById('pwa-banner')) return;
+      const banner = document.createElement('div');
+      banner.id = 'pwa-banner';
+      banner.style.cssText = `
+        position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+        background: var(--surface); border: 1px solid var(--accent3);
+        border-radius: 16px; padding: 14px 20px;
+        z-index: 9999; box-shadow: 0 8px 32px rgba(107,203,255,0.2);
+        font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+        max-width: 320px; text-align: center; line-height: 1.6;
+      `;
+      var Li=tr();
+      banner.innerHTML = '<div style="font-size:1.5rem;margin-bottom:8px;">📱</div>'+
+        '<strong>'+(Li.pwaIOSTitle||'Install StudyFlow')+'</strong><br>'+
+        '<span style="color:var(--text-muted)">'+(Li.pwaIOSInstr||'Tap <strong>Share</strong>, then <strong>"Add to Home Screen"</strong>')+'</span><br>'+
+        '<button onclick="this.closest(\'#pwa-banner\').remove()" style="margin-top:12px;background:none;border:1px solid var(--border);color:var(--text-muted);border-radius:50px;padding:4px 16px;cursor:pointer;font-family:\'DM Sans\',sans-serif;">'+(Li.pwaIOSBtn||'Got it')+'</button>';
+      document.body.appendChild(banner);
+    }, 3000);
+  });
+}
+
+
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+// Apply default language on load
+if(typeof _applyWelcome==='function') _applyWelcome();
+
+// ─── SCREENS & TABS ───────────────────────────────────────────────────────────
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SUPABASE AUTH + CLOUD SYNC
+// ══════════════════════════════════════════════════════════════════════════════
+// 🔧 CONFIGURE YOUR SUPABASE PROJECT HERE:
+const SUPABASE_URL = 'https://rnrcfzmtehnhctwfkcoa.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJucmNmem10ZWhuaGN0d2ZrY29hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2MTEzMzcsImV4cCI6MjA4ODE4NzMzN30.VHYtdIDFj13vOYnfOReZvyt3TESYW_9pgkvF1U7OM3k';
+// Get these from: supabaseClient.com → your project → Settings → API
+
+var supabaseClient = null;
+let currentUser = null;
+let syncTimer = null;
+
+// Initialize Supabase (only if configured)
+if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+  try {
+    if (window.supabase && window.supabase.createClient) {
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+  } catch(e) { console.warn('Supabase SDK not loaded:', e); }
+}
+
+// ── AUTH UI HELPERS ───────────────────────────────────────────────────────────
+function switchAuthTab(tab) {
+  document.getElementById('auth-form-login').style.display = tab === 'login' ? 'flex' : 'none';
+  document.getElementById('auth-form-signup').style.display = tab === 'signup' ? 'flex' : 'none';
+  clearAuthMessages();
+}
+
+function showAuthError(msg) {
+  var el = document.getElementById('auth-error');
+  if (el) { el.textContent = msg; el.style.display = 'block'; el.style.background='rgba(255,80,80,0.15)'; el.style.border='1px solid rgba(255,80,80,0.4)'; el.style.color='#ff6b6b'; el.style.padding='12px'; el.style.borderRadius='10px'; el.style.marginBottom='12px'; }
+  var s = document.getElementById('auth-success');
+  if (s) s.style.display = 'none';
+}
+
+function showAuthSuccess(msg) {
+  var el = document.getElementById('auth-success');
+  if (el) { el.textContent = msg; el.style.display = 'block'; el.style.background='rgba(80,255,120,0.15)'; el.style.border='1px solid rgba(80,255,120,0.4)'; el.style.color='#6bcf7f'; el.style.padding='12px'; el.style.borderRadius='10px'; el.style.marginBottom='12px'; el.style.textAlign='center'; }
+  var e = document.getElementById('auth-error');
+  if (e) e.style.display = 'none';
+}
+
+function clearAuthMessages() {
+  document.getElementById('auth-error').classList.remove('show');
+  document.getElementById('auth-success').classList.remove('show');
+}
+
+function setAuthLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.disabled = loading;
+  btn.textContent = loading ? '...' : (btnId === 'login-btn' ? 'Sign in →' : 'Create account →');
+}
+
+// ── AUTH ACTIONS ──────────────────────────────────────────────────────────────
+async function doLogin() {
+  if (!supabaseClient) return showAuthError('Supabase not configured. See setup instructions.');
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  if (!email || !password) return showAuthError('Please fill in all fields.');
+  setAuthLoading('login-btn', true);
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  setAuthLoading('login-btn', false);
+  if (error) return showAuthError(error.message);
+  await onLoginSuccess(data.user);
+}
+
+async function doSignup() {
+  try {
+    var nameEl = document.getElementById('signup-name');
+    var emailEl = document.getElementById('signup-email');
+    var passEl = document.getElementById('signup-password');
+    if (!nameEl || !emailEl || !passEl) { alert('Form error: fields not found'); return; }
+    var name = nameEl.value.trim();
+    var email = emailEl.value.trim();
+    var password = passEl.value;
+    if (!name || !email || !password) { showAuthError('Please fill in all fields.'); return; }
+    if (password.length < 6) { showAuthError('Password must be at least 6 characters.'); return; }
+    if (!supabaseClient) { showAuthError('Connection error. Please reload the page.'); return; }
+    var btn = document.getElementById('signup-btn');
+    if (btn) { btn.disabled = true; btn.textContent = '...'; }
+    var result = await supabaseClient.auth.signUp({
+      email: email,
+      password: password,
+      options: { data: { full_name: name } }
+    });
+    if (btn) { btn.disabled = false; btn.textContent = 'Create account →'; }
+    if (result.error) { showAuthError(result.error.message); return; }
+    if (result.data && result.data.user && !result.data.session) {
+      showAuthSuccess('✉️ Check your email to confirm your account, then sign in.');
+      return;
+    }
+    if (result.data && result.data.user) {
+      state.student.name = name;
+      await onLoginSuccess(result.data.user);
+    }
+  } catch(e) {
+    alert('Error: ' + e.message);
+  }
+}
+
+async function doGoogleLogin() {
+  if (!supabaseClient) return showAuthError('Supabase not configured.');
+  const { error } = await supabaseClient.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.href }
+  });
+  if (error) showAuthError(error.message);
+}
+
+async function showForgotPassword() {
+  if (!supabaseClient) return;
+  const email = document.getElementById('login-email').value.trim();
+  if (!email) return showAuthError('Enter your email first.');
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
+  if (error) showAuthError(error.message);
+  else showAuthSuccess('✉️ Password reset email sent!');
+}
+
+async function doLogout() {
+  toggleUserMenu(false);
+  if (supabaseClient) await supabaseClient.auth.signOut();
+  currentUser = null;
+  // Clear state
+  state.esami = [];
+  state.completed = {};
+  state.student = { name:'', anno:'', corso:'', stileStudio:'', orePossibili:2, puntiDeboli:[], quizScores:[] };
+  localStorage.removeItem('studyflow_v1');
+  showScreen('screen-auth');
+}
+
+// ── POST-LOGIN ────────────────────────────────────────────────────────────────
+async function onLoginSuccess(user) {
+  try {
+    currentUser = user;
+    updateUserUI(user);
+    setSyncStatus('syncing');
+    const loaded = await cloudLoad();
+    setSyncStatus('ok');
+    if (loaded && state.student && state.student.name) {
+      showScreen('screen-app');
+      _applyApp();
+      renderAll();
+      switchTabNav('dashboard', null);
+    } else {
+      showScreen('screen-welcome');
+      _applyWelcome();
+    }
+  } catch(e) {
+    console.error('onLoginSuccess error:', e);
+    showScreen('screen-welcome');
+    _applyWelcome();
+  }
+}
+
+function updateUserUI(user) {
+  if (!user) return;
+  const name = user.user_metadata?.full_name || user.email?.split('@')[0] || '?';
+  const initial = name[0].toUpperCase();
+  ['header-avatar','sidebar-avatar'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = initial;
+  });
+  const nameEl = document.getElementById('menu-name');
+  const emailEl = document.getElementById('menu-email');
+  if (nameEl) nameEl.textContent = name;
+  if (emailEl) emailEl.textContent = user.email;
+  const sidebarName = document.getElementById('sidebar-user-name');
+  if (sidebarName) sidebarName.textContent = name;
+}
+
+function toggleUserMenu(forceState) {
+  const menu = document.getElementById('user-menu');
+  if (!menu) return;
+  const isOpen = forceState !== undefined ? !forceState : menu.classList.contains('open');
+  menu.classList.toggle('open', !isOpen);
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.user-avatar') && !e.target.closest('.user-menu')) {
+    toggleUserMenu(false);
+  }
+});
+
+// ── SYNC STATUS ───────────────────────────────────────────────────────────────
+function setSyncStatus(status) {
+  ['header-sync-dot','sidebar-sync-dot'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'sync-dot' + (status === 'syncing' ? ' syncing' : status === 'error' ? ' error' : '');
+    el.title = status === 'ok' ? 'Synced' : status === 'syncing' ? 'Syncing...' : 'Sync error';
+  });
+}
+
+// ── CLOUD SAVE / LOAD ─────────────────────────────────────────────────────────
+async function cloudSave() {
+  if (!supabaseClient || !currentUser) {
+    // Fallback to localStorage
+    try {
+      localStorage.setItem('studyflow_v1', JSON.stringify({
+        student: state.student, esami: state.esami,
+        completed: state.completed, lang: currentLang,
+      }));
+    } catch(e) {}
+    return;
+  }
+  setSyncStatus('syncing');
+  try {
+    const payload = {
+      user_id: currentUser.id,
+      data: JSON.stringify({
+        student: state.student,
+        esami: state.esami,
+        completed: state.completed,
+        lang: currentLang,
+      }),
+      updated_at: new Date().toISOString(),
+    };
+    await supabaseClient.from('user_data').upsert(payload, { onConflict: 'user_id' });
+    setSyncStatus('ok');
+  } catch(e) {
+    setSyncStatus('error');
+    // Fallback save to localStorage
+    try { localStorage.setItem('studyflow_v1', JSON.stringify({ student: state.student, esami: state.esami, completed: state.completed })); } catch(e2) {}
+  }
+}
+
+async function cloudLoad() {
+  // Try cloud first
+  if (supabaseClient && currentUser) {
+    try {
+      const { data, error } = await supabaseClient
+        .from('user_data')
+        .select('data')
+        .eq('user_id', currentUser.id)
+        .maybeSingle();
+      if (data && data.data) {
+        const parsed = JSON.parse(data.data);
+        if (parsed.student) state.student = { ...state.student, ...parsed.student };
+        if (parsed.esami) state.esami = parsed.esami;
+        if (parsed.completed) state.completed = parsed.completed;
+        if (parsed.lang) { currentLang = parsed.lang; }
+        return true;
+      }
+    } catch(e) {}
+  }
+  // Fallback: localStorage
+  try {
+    const raw = localStorage.getItem('studyflow_v1');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.student) state.student = { ...state.student, ...parsed.student };
+      if (parsed.esami) state.esami = parsed.esami;
+      if (parsed.completed) state.completed = parsed.completed;
+      if (parsed.lang) { currentLang = parsed.lang; }
+      return !!(parsed.student?.name || parsed.esami?.length);
+    }
+  } catch(e) {}
+  return false;
+}
+
+function scheduleSave() {
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(cloudSave, 1000);
+}
+
+async function exportUserData() {
+  toggleUserMenu(false);
+  const data = JSON.stringify({ student: state.student, esami: state.esami, completed: state.completed }, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'studyflow-backup-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── AUTO-SAVE HOOKS ───────────────────────────────────────────────────────────
+const _sSaveExam = saveExam;
+function saveExam() { _sSaveExam(); scheduleSave(); }
+const _sDeleteExam = deleteExam;
+function deleteExam(id) { _sDeleteExam(id); scheduleSave(); }
+const _sToggleDone = toggleDone;
+function toggleDone(key, btn) { _sToggleDone(key, btn); scheduleSave(); }
+const _sFinishOnb = finishOnboarding;
+function finishOnboarding() { _sFinishOnb(); scheduleSave(); }
+const _sSetLang = setLang;
+function setLang(lang) { _sSetLang(lang); scheduleSave(); }
+
+// ── STARTUP ───────────────────────────────────────────────────────────────────
+(async function startup() {
+  if (!supabaseClient) {
+    // Supabase not configured - show setup message or fallback to localStorage
+    const raw = localStorage.getItem('studyflow_v1');
+    if (raw) {
+      try {
+        const d = JSON.parse(raw);
+        if (d.student) state.student = { ...state.student, ...d.student };
+        if (d.esami) state.esami = d.esami;
+        if (d.completed) state.completed = d.completed;
+        if (d.lang) currentLang = d.lang;
+      } catch(e) {}
+    }
+    // Show auth screen anyway so user can set up later
+    showScreen('screen-auth');
+    return;
+  }
+
+  // Reset mode - clear session and show login
+  if (window.location.search.includes('reset=1')) {
+    if (supabaseClient) await supabaseClient.auth.signOut();
+    showScreen('screen-auth');
+    window.history.replaceState({}, '', window.location.pathname);
+    return;
+  }
+
+  // Check if user already logged in (session restored from cookie)
+  if (!supabaseClient) { showScreen('screen-auth'); return; }
+  try {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session && session.user) {
+      await onLoginSuccess(session.user);
+    } else {
+      showScreen('screen-auth');
+    }
+  } catch(e) {
+    console.error('Session check error:', e);
+    showScreen('screen-auth');
+  }
+
+  // Listen for auth changes (e.g. after Google OAuth redirect)
+  supabaseClient.auth.onAuthStateChange(async (event, session) => {
+    if (event === 'SIGNED_IN' && session?.user && !currentUser) {
+      await onLoginSuccess(session.user);
+    } else if (event === 'SIGNED_OUT') {
+      showScreen('screen-auth');
+    }
+  });
+})();
+
+
+// Handle direct signup link
+if (window.location.hash === '#signup') {
+  setTimeout(function() { switchAuthTab('signup'); }, 100);
+}
+
+</script>
+</body>
+</html>
