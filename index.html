@@ -2639,8 +2639,8 @@ async function onLoginSuccess(user) {
     }
   } catch(e) {
     console.error('onLoginSuccess error:', e);
-    showScreen('screen-welcome');
-    _applyWelcome();
+    alert('Login error: ' + e.message);
+    showScreen('screen-auth');
   }
 }
 
