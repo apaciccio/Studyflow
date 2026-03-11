@@ -79,13 +79,14 @@
     --radius: 16px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+  html { height: 100%; }
+body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
   /* SCROLLBAR */
   ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
 
   /* LAYOUT */
-  .screen { display: none; min-height: 100vh; width: 100%; position: relative; z-index: 1; flex-direction: column; }
+  .screen { display: none; min-height: 100%; width: 100%; position: relative; z-index: 1; flex-direction: column; }
   .screen.active { display: flex !important; flex-direction: column !important; width: 100% !important; min-height: 100vh !important; visibility: visible !important; opacity: 1 !important; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -1551,7 +1552,11 @@ function showScreen(id) {
     el.style.setProperty('display', 'flex', 'important');
     el.style.setProperty('flex-direction', 'column', 'important');
     el.style.setProperty('min-height', '100vh', 'important');
-    el.style.setProperty('width', '100%', 'important');
+    el.style.setProperty('height', '100vh', 'important');
+    el.style.setProperty('width', '100vw', 'important');
+    el.style.setProperty('position', 'fixed', 'important');
+    el.style.setProperty('top', '0', 'important');
+    el.style.setProperty('left', '0', 'important');
   }
 }
 
