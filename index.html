@@ -605,7 +605,7 @@
 
 
 <!-- ═══════════════ AUTH SCREEN ═══════════════ -->
-<div id="screen-auth" class="screen active" style="display:flex;flex-direction:column;min-height:100vh;width:100%;">
+<div id="screen-auth" class="screen active" style="display:flex !important;flex-direction:column;min-height:100vh;width:100%;">
   <div class="auth-card">
     <div class="auth-logo">Study<span>Flow</span></div>
     <div class="auth-tagline">Your personal exam planner · Sync across all devices</div>
@@ -1543,15 +1543,15 @@ if(typeof _applyWelcome==='function') _applyWelcome();
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(function(s) {
     s.classList.remove('active');
-    s.style.display = 'none';
+    s.style.setProperty('display', 'none', 'important');
   });
   var el = document.getElementById(id);
   if (el) {
     el.classList.add('active');
-    el.style.display = 'flex';
-    el.style.flexDirection = 'column';
-    el.style.minHeight = '100vh';
-    el.style.width = '100%';
+    el.style.setProperty('display', 'flex', 'important');
+    el.style.setProperty('flex-direction', 'column', 'important');
+    el.style.setProperty('min-height', '100vh', 'important');
+    el.style.setProperty('width', '100%', 'important');
   }
 }
 
