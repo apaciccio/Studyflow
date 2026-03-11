@@ -2831,6 +2831,9 @@ function setLang(lang) { _sSetLang(lang); scheduleSave(); }
 })();
 
 
+// Show auth screen immediately on load
+showScreen('screen-auth');
+
 // Handle direct signup link
 if (window.location.hash === '#signup') {
   setTimeout(function() { switchAuthTab('signup'); }, 100);
