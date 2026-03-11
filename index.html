@@ -2629,15 +2629,10 @@ async function onLoginSuccess(user) {
     setSyncStatus('syncing');
     const loaded = await cloudLoad();
     setSyncStatus('ok');
-    if (loaded && state.student && state.student.name) {
-      showScreen('screen-app');
-      _applyApp();
-      renderAll();
-      switchTabNav('dashboard', null);
-    } else {
-      showScreen('screen-welcome');
-      _applyWelcome();
-    }
+    showScreen('screen-app');
+    _applyApp();
+    renderAll();
+    switchTabNav('dashboard', null);
   } catch(e) {
     console.error('onLoginSuccess error:', e);
     alert('Login error: ' + e.message);
