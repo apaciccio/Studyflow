@@ -2780,6 +2780,11 @@ const _sSetLang = setLang;
 function setLang(lang) { _sSetLang(lang); scheduleSave(); }
 
 // ── STARTUP ───────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  // Show auth screen immediately on load
+  showScreen('screen-auth');
+});
+
 (async function startup() {
   if (!supabaseClient) {
     // Supabase not configured - show setup message or fallback to localStorage
