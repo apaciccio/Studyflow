@@ -605,7 +605,7 @@
 
 
 <!-- ═══════════════ AUTH SCREEN ═══════════════ -->
-<div id="screen-auth" class="screen active">
+<div id="screen-auth" class="screen active" style="display:flex;flex-direction:column;min-height:100vh;width:100%;">
   <div class="auth-card">
     <div class="auth-logo">Study<span>Flow</span></div>
     <div class="auth-tagline">Your personal exam planner · Sync across all devices</div>
@@ -2780,11 +2780,6 @@ const _sSetLang = setLang;
 function setLang(lang) { _sSetLang(lang); scheduleSave(); }
 
 // ── STARTUP ───────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function() {
-  // Show auth screen immediately on load
-  showScreen('screen-auth');
-});
-
 (async function startup() {
   if (!supabaseClient) {
     // Supabase not configured - show setup message or fallback to localStorage
