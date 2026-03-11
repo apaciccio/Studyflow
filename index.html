@@ -85,8 +85,8 @@
   ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
 
   /* LAYOUT */
-  .screen { display: none; min-height: 100vh; animation: fadeIn 0.5s ease; position: relative; z-index: 1; }
-  .screen.active { display: flex; flex-direction: column; }
+  .screen { display: none; min-height: 100vh; width: 100%; position: relative; z-index: 1; }
+  .screen.active { display: flex !important; flex-direction: column; width: 100%; min-height: 100vh; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   /* HEADER */
@@ -100,11 +100,6 @@
 
   /* WELCOME SCREEN */
   #screen-welcome { align-items: center; justify-content: center; text-align: center; padding: 60px 20px; position: relative; }
-  .bg-orbs { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: -1; }
-  .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; animation: float 8s ease-in-out infinite; }
-  .orb1 { width: 500px; height: 500px; background: var(--accent); top: -100px; left: -100px; animation-delay: 0s; }
-  .orb2 { width: 400px; height: 400px; background: var(--accent3); bottom: -100px; right: -100px; animation-delay: 3s; }
-  .orb3 { width: 300px; height: 300px; background: var(--accent2); top: 40%; left: 40%; animation-delay: 6s; }
   @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-30px) scale(1.05); } }
   .welcome-content { position: relative; z-index: 1; max-width: 700px; }
   .welcome-badge { display: inline-block; padding: 6px 18px; background: rgba(232,197,71,0.15); border: 1px solid rgba(232,197,71,0.3); border-radius: 50px; font-size: 0.8rem; color: var(--accent); margin-bottom: 24px; letter-spacing: 2px; text-transform: uppercase; }
@@ -606,11 +601,7 @@
 </head>
 <body>
 
-<div class="bg-orbs">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-</div>
+
 
 
 <!-- ═══════════════ AUTH SCREEN ═══════════════ -->
