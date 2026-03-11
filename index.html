@@ -85,8 +85,8 @@
   ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
 
   /* LAYOUT */
-  .screen { display: none; min-height: 100vh; width: 100%; position: relative; z-index: 1; }
-  .screen.active { display: flex !important; flex-direction: column; width: 100%; min-height: 100vh; }
+  .screen { display: none; min-height: 100vh; width: 100%; position: relative; z-index: 1; flex-direction: column; }
+  .screen.active { display: flex !important; flex-direction: column !important; width: 100% !important; min-height: 100vh !important; visibility: visible !important; opacity: 1 !important; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   /* HEADER */
@@ -1541,8 +1541,18 @@ if(typeof _applyWelcome==='function') _applyWelcome();
 
 // ─── SCREENS & TABS ───────────────────────────────────────────────────────────
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.screen').forEach(function(s) {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
+  var el = document.getElementById(id);
+  if (el) {
+    el.classList.add('active');
+    el.style.display = 'flex';
+    el.style.flexDirection = 'column';
+    el.style.minHeight = '100vh';
+    el.style.width = '100%';
+  }
 }
 
 function switchTab(tab) { switchTabNav(tab, null); }
